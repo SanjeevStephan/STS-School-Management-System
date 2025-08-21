@@ -1,0 +1,55 @@
+{% load static %}
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="http://watchdog.local" target="_blank">
+          <i class="bi bi-bank2"></i>
+          <span>Home</span>
+        </a>
+        
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="/">
+          <i class="bi bi-card-list"></i>
+          <span>All Students List</span>
+        </a>
+        
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-heading">Students</li>
+
+          {% include 'sections/04_elements.html' with element='nav_menu' dict_from_views=nav_menu %} 
+
+      <li class="nav-heading">Exams</li>
+
+      {% include 'sections/04_elements.html' with element='nav_menu' dict_from_views=govt_exams %} 
+      <!-- End Profile Page Nav -->
+
+    
+      <li class="nav-heading">Add New Record</li>
+
+
+      <div class="unlimited-access hide-menu bg-primary-subtle position-relative mb-7 mt-7 rounded-3"> 
+        <div class="d-flex">
+          <div class="unlimited-access-img">
+            <a href="/admin" target="_blank"
+              class="btn btn-outline-light fs-9 fw-semibold lh-sm">
+              <img src="{% static '/img/rocket.png' %}" width="80" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </ul>
+
+
+
+
+
+  
+
+  </aside>

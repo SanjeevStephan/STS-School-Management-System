@@ -1,0 +1,28 @@
+{% extends 'base/master.html' %}
+
+{% block title %}  {{ website.title }} {% endblock %}
+
+{% block header %}
+
+
+    {% include 'sections/01_header.html'  %}
+    {% include 'studentsections/02_sidebar.html' %} 
+
+{% endblock %}
+
+{% block content %}
+
+
+    {% include 'sections/03_breadcrumb.html' with bread=2 site_title="Students Records" level1="Records" level2="Students" %} 
+
+    {% include 'studentsections/00_datatable.html' %}
+ 
+
+
+    {% include 'sections/04_elements.html' with element='footer' %}
+
+
+{% endblock %}
+
+
+
