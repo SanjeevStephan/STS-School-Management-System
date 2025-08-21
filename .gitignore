@@ -1,3 +1,7 @@
 venv
 STSAgiamore\db.sqlite3
 db.sqlite3
+*.json
+*.key
+__pycache__
+migrations
