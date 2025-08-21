@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+class AcademicOptionsModel(models.Model):
+    academic_session = models.CharField(max_length=7)
+
+    class Meta:
+        verbose_name = "Academic Session"
+
+    def __str__(self):
+        return self.academic_session
+
 class ClassOptionsModel(models.Model):
     class_name = models.CharField(max_length=50)
 
