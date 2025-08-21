@@ -1,0 +1,43 @@
+{% load static %}
+
+    {% if element == 'logo_title' %}
+
+            <div class="d-flex align-items-center justify-content-between">
+                {% block header %}
+                <a href="{{ website.link }}" class="logo d-flex align-items-center">
+                <img src="{{ website.logo }}"  height="100%"  alt="">
+                <span class="d-none d-lg-block">{{ website.title }} </span>
+                </a>
+                {% endblock %}
+                <i class="bi bi-list toggle-sidebar-btn"></i>
+            </div>
+            
+    {% elif element == 'nav_menu' %}
+
+            {% for menu in dict_from_views %}
+
+            <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ menu.link}}">
+                <i class="{{ menu.icon }}"></i>
+                <span>{{ menu.name }}</span>
+            </a>
+            </li>
+
+            {% endfor %}
+
+    {% elif element == 'footer' %}
+
+            <!-- ======= Footer ======= -->
+        <footer id="footer" class="footer">
+            <div class="copyright">
+            &copy; Copyright <strong><span>Stephanware Inc.</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+               Designed by <a href="/">Sanjeev Stephan Murmu</a>
+            </div>
+        </footer><!-- End Footer -->
+
+
+
+
+    {% endif %}

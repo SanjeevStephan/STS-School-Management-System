@@ -1,0 +1,23 @@
+{% extends 'base/master.html' %}
+
+{% block title %}  {{ website.title }} {% endblock %}
+
+{% block header %}
+
+
+    {% include 'sections/01_header.html'  %}
+    {% include 'sections/02_sidebar.html' %} 
+
+{% endblock %}
+
+{% block content %}
+
+
+    {% include 'sections/03_breadcrumb.html' with bread=2 site_title="All Available Exams Records" level1="Govt. Exams" level2="All Exams" %} 
+
+    {% include 'sections/00_datatable.html' %}
+
+    {% include 'sections/04_elements.html' with element='footer' %}
+
+{% endblock %}
+
