@@ -60,7 +60,7 @@ class StudentModel(models.Model):
     section_name     = models.CharField(max_length=2,  choices=SECTION_CHOICES, default='A') 
     # roll_no          = models.IntegerField()                               ## Must ( ... , blank=True, null=True )
     roll_no          = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE)  ## SHOW  
-    dob              = models.DateField()                                                                           ## SHOW
+    dob              = models.DateField(null=True, blank=True)                                                                        ## SHOW
     address          = models.TextField(max_length=300, blank=True)
     # district       = models.CharField(max_length=50, choices=DISTRICT_CHOICES, null=True, blank=True)
     district         = models.ForeignKey(DistrictsOptionsModel, on_delete=models.CASCADE, null=True, blank=True)

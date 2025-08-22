@@ -28,6 +28,8 @@
                 {% for data in studentdb %}
 
                   {% if data.class_name == alias_name %}
+                      
+
  
                       <th scope="row">{{ data.pk }}</th>
                       <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>
@@ -37,6 +39,8 @@
                       <td>{{ data.roll_no }}</td>
                       <td>{{ data.dob }}</td>
                       <td><a href="{% url 'student_terminal_result' data.pk %}" target="_blank">Show</a></td>
+
+                     
 
                     {% endif %} 
 

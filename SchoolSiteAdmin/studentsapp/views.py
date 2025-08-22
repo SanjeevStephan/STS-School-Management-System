@@ -92,7 +92,8 @@ context =  {
     'nav_menu' : nav_menu,
     'academic_session' : academic_session,
     'alias_name' : 'all',
-    'website' : website
+    'website' : website,
+    'current_session' : '2025-25'
 }
 
 
