@@ -82,6 +82,9 @@ class TerminalExamMarksModel(models.Model):
     history = models.IntegerField(blank=True, null=True)    
     geography = models.IntegerField(blank=True, null=True)    
 
+
+    total_marks = models.IntegerField(blank=True, null=True)
+    percentage = models.IntegerField(blank=True, null=True)
     supw = models.CharField(max_length=1, choices=SUPW_CHOICES, blank=True, null=True)
 
     ## Attendance_days
