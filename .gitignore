@@ -4,5 +4,4 @@ db.sqlite3
 *.json
 *.key
 __pycache__
-migrations
 backup
