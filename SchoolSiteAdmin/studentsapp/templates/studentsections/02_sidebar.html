@@ -4,28 +4,44 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="http://watchdog.local" target="_blank">
+        <a class="nav-link " href="/" target="_blank">
           <i class="bi bi-bank2"></i>
           <span>Home</span>
         </a>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/admin" target="_blank">
+            <i class="bi bi-bank2"></i>
+          <span>Admin</span>
+        </a>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/admin/studentsapp/studentmodel/add/" target="_blank">
+            <i class="bi bi-people"></i>
+          <span>Add New Student</span>
+        </a>
+        
         
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link " href="/">
           <i class="bi bi-card-list"></i>
           <span>All Students List</span>
         </a>
-        
+         -->
       </li><!-- End Dashboard Nav -->
+
+      <li class="nav-heading">Academic Session</li>
+
+      {% include 'sections/04_elements.html' with element='nav_menu' dict_from_views=academic_session %} 
+
 
       <li class="nav-heading">Students</li>
 
           {% include 'sections/04_elements.html' with element='nav_menu' dict_from_views=nav_menu %} 
 
-      <li class="nav-heading">Exams</li>
 
-      {% include 'sections/04_elements.html' with element='nav_menu' dict_from_views=govt_exams %} 
       <!-- End Profile Page Nav -->
 
     

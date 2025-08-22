@@ -3,7 +3,7 @@ from django.conf import settings
 from .models import StudentModel
 
 
-logo = f"{settings.STATIC_URL}{'img/govt-of-india-logo.png'}"
+logo = f"{settings.STATIC_URL}{'img/school-logo.png'}"
 website = {
 'title' : "St.Thomas School",
 'link'  : '',
@@ -74,21 +74,15 @@ nav_menu = [
     }
 ]
 
-govt_exams = [
+academic_session = [
     {
-        'name' : 'IBPS',
-        'link' : "/student/IBPS",
+        'name' : '2024-25',
+        'link' : "/session/2024-25",
         'icon' : 'bi bi-bookmark-star-fill'
     },
     {
-        'name' : 'JSSC',
-        'link' : "/student/JSSC",
-        'icon' : 'bi bi-bookmark-star-fill'
-    }
-    ,
-    {
-        'name' : 'UPSC',
-        'link' : "/exams/govt/UPSC",
+        'name' : '2025-26',
+        'link' : "/session/2025-26",
         'icon' : 'bi bi-bookmark-star-fill'
     }
 ]
@@ -96,7 +90,7 @@ govt_exams = [
 context =  {
     'studentdb' : StudentModel.objects.all(),
     'nav_menu' : nav_menu,
-    'govt_exams' : govt_exams,
+    'academic_session' : academic_session,
     'alias_name' : 'all',
     'website' : website
 }
@@ -116,3 +110,9 @@ def Filter_Students_Via_Class(request, *args, **kwargs):
     return render(request, 'all_students.html', context)
 
 
+def Filter_Students_Via_Session(request, *args, **kwargs):
+    session = kwargs.get('session')
+    # context.update({'class_name' : class_name})
+    context.update({'session' : session})
+    # context.update({'site_title' : 'All Students Records'})
+    return render(request, 'students_per_sessions.html', context)

@@ -40,13 +40,19 @@ CONVEYANCE_CHOICES = (
     ('self', 'SELF')
 )
 
+SESSION_CHOICES = (
+    ('2024-25','2024-25'),
+    ('2025-26','2025-26')
+)
+
+
 
 class StudentModel(models.Model):
     # serial_no      = models.IntegerField(primary_key=True, )
     admission_no     = models.CharField(max_length=10, blank=True)         ## SHOW    
     student_name     = models.CharField(max_length=150)                    ## SHOW
-    # academic_session = models.CharField(max_length=10,  default='2025-26', blank=True, null=True) ## SHOW
-    academic_session = models.ForeignKey(AcademicOptionsModel, on_delete=models.CASCADE)
+    academic_session = models.CharField(max_length=10, choices=SESSION_CHOICES) ## SHOW
+    # academic_session = models.ForeignKey(AcademicOptionsModel, on_delete=models.CASCADE)
     father_name      = models.CharField(max_length=150, blank=True)       
     mother_name      = models.CharField(max_length=150, blank=True)        
     class_name       = models.CharField(max_length=50, choices=CLASS_CHOICES)              ## SHOW

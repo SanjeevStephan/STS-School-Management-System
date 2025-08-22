@@ -6,7 +6,7 @@
 
         <div class="card">
           <div class="card-body">
-          <h5 class="card-title">Class {{ alias_name }} Student Records</h5>   
+          <h5 class="card-title">Students from Academic Session : {{ session }} </h5>   
 
             <p>Follow <a href="/admin" target="_blank">This Admin Panel</a> To Add Exam's Related Data to this Vault.</p>
             <!-- Table with stripped rows -->
@@ -27,7 +27,7 @@
                  <tr>
                 {% for data in studentdb %}
 
-                  {% if data.class_name == alias_name %}
+                  {% if data.academic_session == session %}
  
                       <th scope="row">{{ data.pk }}</th>
                       <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>
