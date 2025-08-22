@@ -26,14 +26,14 @@ def result_app_view(request, pk):
     return render(request, 'marksheet.html', context)
 
 
-def student_first_terminal_result(request, pk):
+def student_terminal_result(request, pk):
     pass_marks = 35
     student_data = StudentModel.objects.get(id=pk)
     session_id = getSessionID(pk)
 
 
     # first_terminal_marks = get_object_or_404(FirstExamMarksModel, student_name=student_data.student_name) 
-    first_terminal_marks = FirstExamMarksModel.objects.get(id=pk)
+    first_terminal_marks = TerminalExamMarksModel.objects.get(id=pk)
     context = {
         'student' : student_data,
         'first_terminal_marks' : first_terminal_marks,
