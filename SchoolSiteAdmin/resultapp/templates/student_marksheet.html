@@ -1,0 +1,427 @@
+{% load static %}
+
+<div class="main-container"></div>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ST. THOMAS SCHOOL - Report Card</title>
+<style>
+    body {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        background: #fff;
+        color: #222;
+        margin: 40px;
+    }
+    .container-left {
+        width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #888;
+        padding: 25px 35px 40px 35px;
+        /* flex: 2; */
+        margin-left: 0px;
+    }
+    .container-right {
+        width: 500px;
+        margin: 0 auto;
+        background: #fff;
+        margin-right: auto;
+        border: 1px solid #888;
+        padding: 25px 35px 40px 35px;
+        margin-right: 0px;
+    }
+    .left-box 
+    {
+        margin-left: 0px;
+        
+    }
+    .right-box
+    {
+        /* border: 2px solid #333; 
+        border-radius: 8px;  */
+        padding: 18px; 
+        background: #ffffff; 
+        margin-right: 0px;
+    }
+
+    .header {
+        text-align: center;
+        line-height: 1.2;
+        /* align-items: center; */
+    }
+    .header .school-title {
+        font-size: 3rem;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        margin-bottom: 0;
+    }
+    .header .school-address {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .header .session-title {
+        font-size: 1.16rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        letter-spacing: 1.7px;
+    }
+    .info-table {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    .top-heading-box
+    {
+        /* margin-bottom: 10px;  */
+        padding: 4px 16px 4px 4px;
+        text-align: center;
+    }
+    .gray-box
+    {
+        width: auto;
+        background: #ededed;
+        font-weight: bold;
+        font-size: 1.01rem;
+    }
+    .info-table td {
+        font-size: 1.06rem;
+        padding: 4px 16px 4px 4px;
+        border: none;
+    }
+    .main-tables {
+        display: flex;
+        gap: 18px;
+    }
+    .left-table { flex: 2; }
+    .right-table { flex: 1; }
+
+    .marks-table, .attendance-table, .sign-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        margin-bottom: 15px;
+    }
+    .marks-table th, .marks-table td,
+    .attendance-table th, .attendance-table td,
+    .sign-table th, .sign-table td {
+        border: 1px solid #333;
+        font-size: 0.97rem;
+        padding: 5px 7px;
+        text-align: center;
+    }
+    .marks-table th {
+        background: #ededed;
+        font-weight: bold;
+        font-size: 1.01rem;
+    }
+    .attendance-table th {
+        background: #ededed;
+        font-weight: bold;
+    }
+    .marks-table tr:last-child td, .marks-table tr:last-child th {
+        background: #fafafa;
+    }
+    .supw-row td {
+        border: none !important;
+        font-weight: bold;
+        font-size: 1.06rem;
+        text-align: left !important;
+        background: #fff !important;
+        padding-top: 12px;
+    }
+    .section-title {
+        margin-top: 18px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .sign-table th, .sign-table td {
+        border: none !important;
+        padding: 14px;
+        background: #fff;
+    }
+    .final-result {
+        margin-top: 16px;
+        font-size: 1.11rem;
+        font-weight: bold;
+        text-align: left;
+        letter-spacing: 0.9px;
+    }
+    .promoted {
+        color: #167200;
+        font-weight: bold;
+        font-size: 1.09rem;
+        letter-spacing: 1px;
+        background: #eaffea;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+    @media print {
+        body { margin: 0; }
+        .container { border: none; }
+    }
+
+
+    .vertical-text 
+    {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+    }
+    img
+    {
+        width: 120px;
+        height: auto;
+    }
+    .center-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 05px; Optional: add spacing from the top */
+    }
+</style>
+</head>
+<body>
+
+
+
+
+<!-- <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center;"></div>
+    <h1>2</h1>
+</div> -->
+
+<div class="center-image">
+ <table class="top-heading-box" style="border: 0px solid #333;">
+        <tr>
+            <td>
+                <img src="{% static 'img/school-logo.png' %}" alt="School Logo" />
+            </td>
+            <td>
+                <div class="header">
+                    <div class="school-title">ST. THOMAS SCHOOL</div>
+                    <div class="school-address">AGIAMORE, GODDA, JHARKHAND – 814133 &nbsp; Ph: +91-9142260311</div>
+                    <div class="gray-box">ACADEMIC SESSION ({{ student.academic_session }})</div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <div class="left-box" >
+                <div class="main-tables">
+                    <div class="container-left" >
+                        <table class="info-table">
+                            <tr>
+                                <td><strong>NAME</strong> : {{ student.student_name }}</td>
+                                 <td><strong>SESSION</strong> : {{ student.academic_session }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CLASS</strong> : {{ student.class_name }}</td>
+                                <td><strong>SECTION</strong> : {{ student.section_name }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Admission No</strong>: {{ admission_no }}</td>
+                                <td><strong>ROLL No</strong> : {{ student.roll_no }}</td>
+                            </tr>
+                        </table>
+                        <table class="marks-table">
+                            <tr>
+                                <th colspan="7">ACADEMIC PERFORMANCE</th>
+                            </tr>
+                            <tr>
+                                <th>SUBJECTS</th>
+                                <th>FULL MARKS</th>
+                                <th>PASS MARKS</th>
+                                <th>FIRST TEST</th>
+                                <th>SECOND TEST</th>
+                                <th>THIRD TEST</th>
+                                <th>AVERAGE</th>
+                            </tr>
+                            <tr>
+                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ pass_marks }} </td><td>{{ first_terminal_marks.english_i }}</td><td>79.00</td><td> </td><td>51.00</td>
+                            </tr>
+                            {% if first_terminal_marks.english_ii %}
+                            <tr>
+                                <td>ENGLISH LITERATURE</td><td>100</td><td>50</td><td>{{ first_terminal_marks.english_ii }}</td><td>88.00</td><td> </td><td>52.00</td>
+                            </tr>
+                            {% endif %}
+
+                            {% if first_terminal_marks.hindi %}
+                            <tr>
+                                <td>HINDI</td><td>100</td><td>50</td><td>{{ first_terminal_marks.hindi }}</td><td>79.00</td><td> </td><td>55.33</td>
+                            </tr>
+                            {% endif %}
+   
+
+                            {% if first_terminal_marks.history %}
+                            <tr>
+                                <td>HISTORY AND CIVICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.history }}</td><td>96.00</td><td> </td><td>63.33</td>
+                            </tr>
+                            {% endif %}
+
+                            
+                            {% if first_terminal_marks.geography %}
+                            <tr>
+                                <td>GEOGRAPHY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.geography }}</td><td>98.00</td><td> </td><td>64.00</td>
+                            </tr>
+                            {% endif %}
+
+                            {% if first_terminal_marks.mathematics %}
+                            <tr>
+                                <td>MATHEMATICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.mathematics }}</td><td>95.00</td><td> </td><td>63.00</td>
+                            </tr>
+                            {% endif %}
+
+                            {% if first_terminal_marks.physics %}
+                            <tr>
+                                <td>PHYSICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.physics }}</td><td>90.00</td><td> </td><td>61.33</td>
+                            </tr>
+                            {% endif %}
+
+                            {% if first_terminal_marks.chemistry %}
+                            <tr>
+                                <td>CHEMISTRY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.chemistry }}</td><td>90.00</td><td> </td><td>60.33</td>
+                            </tr>
+                            {% endif %}
+
+                            {% if first_terminal_marks.biology %}
+                            <tr>
+                                <td>BIOLOGY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.biology }}</td><td>95.00</td><td> </td><td>64.33</td>
+                            </tr>
+
+                            {% endif %}
+
+
+                            {% if first_terminal_marks.computer %}
+                            <tr>
+                                <td>COMPUTER</td><td>100</td><td>50</td><td>{{ first_terminal_marks.computer }}</td><td>87.00</td><td> </td><td>56.00</td>
+                            </tr>
+                            {% endif %}
+
+                            <tr>
+                                <th>TOTAL</th><th>1000</th><th>500</th><th>875.00</th><th>897.00</th><th></th><th>590.65</th>
+                            </tr>
+                            <tr>
+                                <th>PERCENTAGE</th><th></th><th></th><th>87.50</th><th>89.70</th><th></th><th>59.06</th>
+                            </tr>
+                        </table>
+
+                        <table class="marks-table">
+                            <tr>
+                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_marks.supw }}</th><th>A</th><th> &nbsp;</th><th> -</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </td>
+
+        <td>
+            <div class="right-box">
+                <div class="container-right" style="margin-right: 0px;"> 
+                    <br/>
+                    <table class="attendance-table">
+                        <tr>
+                            <th colspan="4">ATTENDANCE</th>
+                        </tr>
+                        <tr>
+                            <th>No. OF</th>
+                            <th>FIRST TEST</th>
+                            <th>SECOND TEST</th>
+                            <th>THIRD TEST</th>
+                        </tr>
+                        <tr>
+                            <td>WORKING DAYS</td>
+                            <td>85</td>
+                            <td>64</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>DAYS PRESENT</td>
+                            <td>85</td>
+                            <td>64</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>TOTAL STUDENTS</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>FIRST RANK</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>591</td>
+                        </tr>
+                        <tr>
+                            <td>MY RANK</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+             
+            
+                        <table class="attendance-table" style="border: 1px solid black;">
+                        
+                            <tr >
+                                <th rowspan="4"> <span class="vertical-text">&nbsp;&nbsp;SIGNATURE&nbsp;&nbsp;</span> </th>
+                                <tr>
+                                    <th> CLASS TEACHER </th>
+                                    <td>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                    <td>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                    <td>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                </tr>
+                                <tr>
+                                    <th> PRINCIPAL  </th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th> PARENT </th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tr>
+
+                        </table>
+
+
+
+                        <table class="attendance-table" style="border: 2px solid black;">
+                            <tr>
+                                <td><b>FINAL RESULT</b> </td>
+                                <td><span class="promoted">PASSED AND PROMOTED</span></td>
+                            </tr>
+                        </table>
+                      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/>
+                </div>
+               
+            </div>
+        </td>
+    </tr>
+        <tr>
+        <td><center>  <p><small>Session ID: <strong>{{ session_id }}</strong></p></small></center></td>
+    </tr>
+</table>
+<!-- <table>
+
+</table> -->
+
+
+
+
+</body>
+</html>
