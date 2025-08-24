@@ -201,6 +201,7 @@
                     <div class="school-title">ST. THOMAS SCHOOL</div>
                     <div class="school-address">AGIAMORE, GODDA, JHARKHAND – 814133 &nbsp; Ph: +91-9142260311</div>
                     <div class="gray-box">ACADEMIC SESSION ({{ student.academic_session }})</div>
+                    <div>class 10 Marksheet</div>
                 </div>
             </td>
         </tr>
@@ -246,80 +247,50 @@
                                 <th>THIRD TEST</th>
                                 <th>AVERAGE</th>
                             </tr>
-                            {% if first_terminal_marks.english_language %}
-                            <tr>
-                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ pass_marks }} </td><td>{{ first_terminal_marks.english_language }}</td><td>79.00</td><td> </td><td>51.00</td>
-                            </tr>
-                            {% endif %}
-                            {% if first_terminal_marks.english_literature %}
-                            <tr>
-                                <td>ENGLISH LITERATURE</td><td>100</td><td>50</td><td>{{ first_terminal_marks.english_literature }}</td><td>88.00</td><td> </td><td>52.00</td>
-                            </tr>
-                            {% endif %}
-
-                            {% if first_terminal_marks.hindi %}
-                            <tr>
-                                <td>HINDI</td><td>100</td><td>50</td><td>{{ first_terminal_marks.hindi }}</td><td>79.00</td><td> </td><td>55.33</td>
-                            </tr>
-                            {% endif %}
-   
-
-                            {% if first_terminal_marks.history %}
-                            <tr>
-                                <td>HISTORY AND CIVICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.history }}</td><td>96.00</td><td> </td><td>63.33</td>
-                            </tr>
-                            {% endif %}
-
-                            
-                            {% if first_terminal_marks.geography %}
-                            <tr>
-                                <td>GEOGRAPHY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.geography }}</td><td>98.00</td><td> </td><td>64.00</td>
-                            </tr>
-                            {% endif %}
-
-                            {% if first_terminal_marks.mathematics %}
-                            <tr>
-                                <td>MATHEMATICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.mathematics }}</td><td>95.00</td><td> </td><td>63.00</td>
-                            </tr>
-                            {% endif %}
-
-                            {% if first_terminal_marks.physics %}
-                            <tr>
-                                <td>PHYSICS</td><td>100</td><td>50</td><td>{{ first_terminal_marks.physics }}</td><td>90.00</td><td> </td><td>61.33</td>
-                            </tr>
-                            {% endif %}
-
-                            {% if first_terminal_marks.chemistry %}
-                            <tr>
-                                <td>CHEMISTRY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.chemistry }}</td><td>90.00</td><td> </td><td>60.33</td>
-                            </tr>
-                            {% endif %}
-
-                            {% if first_terminal_marks.biology %}
-                            <tr>
-                                <td>BIOLOGY</td><td>100</td><td>50</td><td>{{ first_terminal_marks.biology }}</td><td>95.00</td><td> </td><td>64.33</td>
-                            </tr>
-
-                            {% endif %}
 
 
-                            {% if first_terminal_marks.computer %}
                             <tr>
-                                <td>COMPUTER</td><td>100</td><td>50</td><td>{{ first_terminal_marks.computer }}</td><td>87.00</td><td> </td><td>56.00</td>
-                            </tr>
-                            {% endif %}
-
-                            <tr>
-                                <th>TOTAL</th><th>1000</th><th>500</th><th>875.00</th><th>897.00</th><th></th><th>590.65</th>
+                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ pass_marks }} </td><td>{{ first_terminal_english_lang_mark }}</td><td> </td><td> </td><td> </td>
                             </tr>
                             <tr>
-                                <th>PERCENTAGE</th><th></th><th></th><th>87.50</th><th>89.70</th><th></th><th>59.06</th>
+                                <td>ENGLISH LITERATURE</td><td>100</td><td>50</td><td>{{ first_terminal_english_lit_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>HINDI</td><td>100</td><td>50</td><td>{{ first_terminal_hindi_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>PHYSICS</td><td>100</td><td>50</td><td>{{ first_terminal_physics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>CHEMISTRY</td><td>100</td><td>50</td><td>{{ first_terminal_chemistry_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>BIOLOGY</td><td>100</td><td>50</td><td>{{ first_terminal_biology_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>HISTORY AND CIVICS</td><td>100</td><td>50</td><td>{{ first_terminal_history_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <td>GEOGRAPHY</td><td>100</td><td>50</td><td>{{ first_terminal_geography_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                             <tr>
+                                <td>MATHEMATICS</td><td>100</td><td>50</td><td>{{ first_terminal_mathematics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>   
+                            <tr>
+                                <td>COMPUTER</td><td>100</td><td>50</td><td>{{ first_terminal_computer_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+       
+                            <tr>
+                                <th>TOTAL</th><th>1000</th><th>500</th><th>{{ first_terminal_total_marks }}</th><th><!-- SECOND TOTAL --></th><th><!-- 3RD_TERMINAL --></th><th><!-- TOTAL --></th>
+                            </tr>
+                            <tr>
+                                <th>PERCENTAGE</th><th></th><th></th><th>{{ first_terminal_percentage }}</th><th><!-- 2ND_PERCENTAGE --></th><th></th><th><!-- 3RD_PERCENTAGE --></th>
                             </tr>
                         </table>
 
                         <table class="marks-table">
                             <tr>
-                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_marks.supw }}</th><th>A</th><th> &nbsp;</th><th> -</th>
+                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_supw }}</th><th> {{ second_terminal_supw }}</th><th> &nbsp;</th><th> -</th>
                             </tr>
                         </table>
                     </div>
@@ -343,33 +314,33 @@
                         </tr>
                         <tr>
                             <td>WORKING DAYS</td>
-                            <td>{{ first_terminal_marks.working_days }}</td>
-                            <td>0</td>
-                            <td>0</td>
+                            <td>{{ first_terminal_working_days }}</td>
+                            <td><!-- SECOND_WORKING_DAYS --></td>
+                            <td><!-- THIRD_WORKING_DAYS --></td>
                         </tr>
                         <tr>
                             <td>DAYS PRESENT</td>
-                            <td>85</td>
-                            <td>64</td>
-                            <td>0</td>
+                            <td>{{ first_terminal_days_present }}</td>
+                            <td><!-- SECOND_DAYS_PRESENT--></td>
+                            <td><!-- THIRD_DAYS_PRESENT--></td>
                         </tr>
                         <tr>
                             <td>TOTAL STUDENTS</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>59</td>
+                            <td>{{ first_terminal_total_students }}</td>
+                            <td><!-- SECOND_TOTAL_STUDENTS--></td>
+                            <td><!-- THIRD_TOTAL_STUDENTS--></td>
                         </tr>
                         <tr>
                             <td>FIRST RANK</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>591</td>
+                            <td>{{ first_terminal_first_rank }}</td>
+                            <td><!-- SECOND_TERMINAL_FIRST_RANK --></td>
+                            <td><!-- THIRD_TERMINAL_FIRST_RANK --></td>
                         </tr>
                         <tr>
                             <td>MY RANK</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td>1</td>
+                            <td>{{ first_terminal_my_rank }}</td>
+                            <td><!-- SECOND_TERMINAL_MY_RANK --></td>
+                            <td><!-- THIRD_TERMINAL_MY_RANK --></td>
                         </tr>
                     </table>
              
