@@ -42,11 +42,18 @@ TERMINAL_CHOICES = (
     ('third','Third Terminal'),
 )
 
+FINAL_RESULT_CHOICES = (
+    ('passed','PASSED'),
+    ('promoted','PROMOTED')
+)
+
+
 current_session = '2025-26'
 
 # Create your models here.
 class TerminalExamMarksModel(models.Model):
-    student_name = models.ForeignKey(StudentModel, on_delete=models.CASCADE)
+    # student_name = models.ForeignKey(StudentModel, on_delete=models.CASCADE)
+    student_name = models.CharField(max_length=200, blank=True, null=True)
     class_name   = models.CharField(max_length=20, choices=CLASS_CHOICES)
     academic_session = models.CharField(max_length=10, choices=SESSION_CHOICES) ## SHOW
     terminal_exam  = models.CharField(max_length=6, choices=TERMINAL_CHOICES)
@@ -54,8 +61,8 @@ class TerminalExamMarksModel(models.Model):
     roll_number    = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE, blank=True, null=True)
     ## First Terminal Subject's Marks 
     english    = models.IntegerField(blank=True, null=True)
-    english_i  = models.IntegerField(blank=True, null=True)
-    english_ii = models.IntegerField(blank=True, null=True)
+    english_language  = models.IntegerField(blank=True, null=True)
+    english_literature = models.IntegerField(blank=True, null=True)
     hindi      = models.IntegerField(blank=True, null=True)
     sanskrit   = models.IntegerField(blank=True, null=True)
     social_studies = models.IntegerField(blank=True, null=True)
@@ -96,8 +103,7 @@ class TerminalExamMarksModel(models.Model):
     first_rank  = models.IntegerField(blank=True, null=True)
     my_rank     = models.IntegerField(blank=True, null=True)
 
-
-
+    final_result = models.CharField(max_length=10, choices=FINAL_RESULT_CHOICES, blank=True, null=True)
 
 
     def __str__(self):
