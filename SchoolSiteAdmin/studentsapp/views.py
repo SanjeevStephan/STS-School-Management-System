@@ -10,7 +10,6 @@ website = {
 'logo'  : logo
 }
 
-
 nav_menu = [
     {
         'name' : 'LKG',
@@ -96,6 +95,19 @@ context =  {
     'current_session' : '2025-25'
 }
 
+def getSessionID(pk):
+    student_data = StudentModel.objects.get(id=pk)
+
+    ## Generate Session ID : 
+    slash = '/'
+    dash = '-'
+    # academic_session = student_data.academic_session
+    academic_session = '2025-26'
+    class_name = student_data.class_name
+    section_name = student_data.section_name
+    roll_no = student_data.roll_no
+
+    return  academic_session + slash + class_name + dash + section_name + slash + str(roll_no)
 
 
 # Create your views here.
@@ -104,9 +116,11 @@ def StudentView(request):
 
 
 def Filter_Students_Via_Class(request, *args, **kwargs):
+    # session_id = getSessionID(pk)
     class_name = kwargs.get('class_name')
     # context.update({'class_name' : class_name})
     context.update({'alias_name' : class_name})
+    # context.update({'session_id' : session_id})
     # context.update({'site_title' : 'All Students Records'})
     return render(request, 'all_students.html', context)
 
@@ -117,3 +131,9 @@ def Filter_Students_Via_Session(request, *args, **kwargs):
     context.update({'session' : session})
     # context.update({'site_title' : 'All Students Records'})
     return render(request, 'students_per_sessions.html', context)
+
+
+
+
+
+#  {% if data.class_name == 'X' %} <td><a href="{% url 'student_terminal_result' data.pk %}" target="_blank">Shows Results Now</a></td> {% endif %}
