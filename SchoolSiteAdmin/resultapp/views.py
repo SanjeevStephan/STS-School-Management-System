@@ -42,18 +42,41 @@ def student_terminal_result(request,pk, *args, **kwargs):
             roll_number = student_data.roll_no,
         )
 
+    # first_terminal_english_lang_mark = 0
+    # first_terminal_english_lit_mark = 0
+    # first_terminal_hindi_mark = 0
+    # first_terminal_physics_mark = 0
+    # first_terminal_chemistry_mark = 0
+    # first_terminal_biology_mark = 0
+    # first_terminal_history_mark = 0
+    # first_terminal_geography_mark = 0
+    # first_terminal_mathematics_mark = 0
+    # first_terminal_computer_mark = 0
+    # first_terminal_total_marks  = 0
+    # first_terminal_percentage  = 0
+    # first_terminal_supw  = marks.supw
+    # first_terminal_working_days = 0
+    # first_terminal_days_present = 0
+    # first_terminal_total_students = 0
+    # first_terminal_first_rank = 0
+    # first_terminal_my_rank = 0
+
     for marks in first_terminal_marks:
 
         first_terminal_english_lang_mark = marks.english_language
         first_terminal_english_lit_mark = marks.english_literature
         first_terminal_hindi_mark = marks.hindi
+        first_terminal_sanskrit_mark = marks.sanskrit
         first_terminal_physics_mark = marks.physics
         first_terminal_chemistry_mark = marks.chemistry
         first_terminal_biology_mark = marks.biology
         first_terminal_history_mark = marks.history
         first_terminal_geography_mark = marks.geography
         first_terminal_mathematics_mark = marks.mathematics
+        first_terminal_general_knowledge_mark = marks.general_knowledge
+        first_terminal_moral_science_mark = marks.moral_science
         first_terminal_computer_mark = marks.computer
+        first_terminal_science_mark = marks.science
         first_terminal_total_marks  = marks.total_marks
         first_terminal_percentage  = marks.percentage
         first_terminal_supw  = marks.supw
@@ -62,12 +85,41 @@ def student_terminal_result(request,pk, *args, **kwargs):
         first_terminal_total_students = marks.total_students
         first_terminal_first_rank = marks.first_rank
         first_terminal_my_rank = marks.my_rank
+        final_result = marks.final_result
 
+    context = {
+        'student' : student_data,
+        'first_terminal_marks' : first_terminal_marks,
+        'session_id' : session_id,
+        'pass_marks' : pass_marks,
+    
+        'first_terminal_english_lang_mark':first_terminal_english_lang_mark,
+        'first_terminal_english_lit_mark':first_terminal_english_lit_mark,
+        'first_terminal_hindi_mark':first_terminal_hindi_mark,
+        'first_terminal_sanskrit_mark' : first_terminal_sanskrit_mark,
+        'first_terminal_physics_mark':first_terminal_physics_mark,
+        'first_terminal_chemistry_mark':first_terminal_chemistry_mark,
+        'first_terminal_biology_mark':first_terminal_biology_mark,
+        'first_terminal_history_mark':first_terminal_history_mark,
+        'first_terminal_geography_mark':first_terminal_geography_mark,  
+        'first_terminal_mathematics_mark':first_terminal_mathematics_mark,
+        'first_terminal_general_knowledge_mark' : first_terminal_general_knowledge_mark,
+        'first_terminal_moral_science_mark' : first_terminal_moral_science_mark,
+        'first_terminal_computer_mark':first_terminal_computer_mark,  
 
+        'first_terminal_science_mark' : first_terminal_science_mark,
+        'first_terminal_total_marks':first_terminal_total_marks,  
+        'first_terminal_percentage':first_terminal_percentage, 
+        'first_terminal_supw' : first_terminal_supw,
 
-
-
-
+        'first_terminal_working_days' : first_terminal_working_days,
+        'first_terminal_days_present' : first_terminal_days_present,
+        'first_terminal_total_students' : first_terminal_total_students,
+        'first_terminal_first_rank' : first_terminal_first_rank,
+        'first_terminal_my_rank' : first_terminal_my_rank,
+    
+        'final_result' : final_result
+    }
 
     # first_terminal_marks = list(TerminalExamMarksModel.objects.filter(
     #         terminal_exam='first',
@@ -90,42 +142,15 @@ def student_terminal_result(request,pk, *args, **kwargs):
 
     # first_terminal_marks = get_object_or_404(FirstExamMarksModel, student_name=student_data.student_name) 
     # first_terminal_marks = TerminalExamMarksModel.objects.get(id=pk)
-    context = {
-        'student' : student_data,
-        'first_terminal_marks' : first_terminal_marks,
-        'session_id' : session_id,
-        'pass_marks' : pass_marks,
 
-
-        'first_terminal_english_lang_mark':first_terminal_english_lang_mark,
-        'first_terminal_english_lit_mark':first_terminal_english_lit_mark,
-        'first_terminal_hindi_mark':first_terminal_hindi_mark,
-        'first_terminal_physics_mark':first_terminal_physics_mark,
-        'first_terminal_chemistry_mark':first_terminal_chemistry_mark,
-        'first_terminal_biology_mark':first_terminal_biology_mark,
-        'first_terminal_history_mark':first_terminal_history_mark,
-        'first_terminal_geography_mark':first_terminal_geography_mark,  
-        'first_terminal_mathematics_mark':first_terminal_mathematics_mark,
-        'first_terminal_computer_mark':first_terminal_computer_mark,  
-
-        'first_terminal_total_marks':first_terminal_total_marks,  
-        'first_terminal_percentage':first_terminal_percentage, 
-        'first_terminal_supw' : first_terminal_supw,
-
-        'first_terminal_working_days' : first_terminal_working_days,
-        'first_terminal_days_present' : first_terminal_days_present,
-        'first_terminal_total_students' : first_terminal_total_students,
-        'first_terminal_first_rank' : first_terminal_first_rank,
-        'first_terminal_my_rank' : first_terminal_my_rank,
-
-
-    }
     # return render(request, 'student_marksheet.html', context)
 
 
    #     {% for marks in first_terminal_marks %}
     if student_data.class_name == 'IX' or student_data.class_name == 'X':
          html_file = 'class_wise_marksheet/class_x_marksheet.html'
+    elif student_data.class_name == 'I' or student_data.class_name == 'II' or student_data.class_name == 'III' or student_data.class_name == 'IV' or student_data.class_name == 'V':
+         html_file =  'class_wise_marksheet/class_i_to_v_marksheet.html'
     elif student_data.class_name == 'VI' or student_data.class_name == 'VII' or student_data.class_name == 'VIII':
         html_file = 'class_wise_marksheet/class_vi_to_viii_marksheet.html'
     else:

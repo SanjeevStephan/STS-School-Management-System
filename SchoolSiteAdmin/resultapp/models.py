@@ -43,8 +43,9 @@ TERMINAL_CHOICES = (
 )
 
 FINAL_RESULT_CHOICES = (
-    ('passed','PASSED'),
-    ('promoted','PROMOTED')
+    ('FAILED','FAILED'),
+    ('PASSED','PASSED'),
+    ('PROMOTED','PROMOTED')
 )
 
 
@@ -71,6 +72,7 @@ class TerminalExamMarksModel(models.Model):
 
 
     ## Science Subjects
+    science      = models.IntegerField(blank=True, null=True) 
     physics      = models.IntegerField(blank=True, null=True) 
     chemistry    = models.IntegerField(blank=True, null=True) 
     biology      = models.IntegerField(blank=True, null=True) 
@@ -91,7 +93,7 @@ class TerminalExamMarksModel(models.Model):
 
 
     total_marks = models.IntegerField(blank=True, null=True)
-    percentage = models.IntegerField(blank=True, null=True)
+    percentage = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True)
     supw = models.CharField(max_length=1, choices=SUPW_CHOICES, blank=True, null=True)
 
     ## Attendance_days
