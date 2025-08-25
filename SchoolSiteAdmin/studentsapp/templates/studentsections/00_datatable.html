@@ -15,13 +15,13 @@
                 <tr>
                   <th scope="col">S.No</th>
                   <th scope="col">Student Name</th> 
-                  <th scope="col">Profile</th>
+                  <th scope="col">Update Details</th>
                   <th scope="col">Academic Session</th>
                   <th scope="col">Class Name</th>            
                   <th scope="col">Roll Number</th>
-                  <th scope="col">Date of Birth</th>
                   <th scope="col">Session ID</th>
                   <th scope="col">Result</th>
+                  <th scope="col">Update Result</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,15 +34,14 @@
  
                       <th scope="row">{{ data.pk }}</th>
                       <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>
-                      <td><a href='/media/' target="_blank">Show PDF</a></td>
+                      <td><a href='/admin/studentsapp/studentmodel/{{ data.pk }}/change/' target="_blank">Edit</a></td>
                       <td>{{ data.academic_session }}</td>
                       <td>{{ data.class_name }}</td>
                       <td>{{ data.roll_no }}</td>
-                      <td>{{ data.dob }}</td>
                       <td>{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}</td>
                       
                       <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">Show</a></td>
-
+                      <td><a href="/admin/resultapp/terminalexammarksmodel/{{ data.pk }}/change/" target="_blank">Update</a></td>
 
                     {% endif %}
 

@@ -43,6 +43,7 @@ def student_terminal_result(request,pk, *args, **kwargs):
         )
 
     for marks in first_terminal_marks:
+
         first_terminal_english_lang_mark = marks.english_language
         first_terminal_english_lit_mark = marks.english_literature
         first_terminal_hindi_mark = marks.hindi
@@ -61,6 +62,11 @@ def student_terminal_result(request,pk, *args, **kwargs):
         first_terminal_total_students = marks.total_students
         first_terminal_first_rank = marks.first_rank
         first_terminal_my_rank = marks.my_rank
+
+
+
+
+
 
 
     # first_terminal_marks = list(TerminalExamMarksModel.objects.filter(
@@ -118,7 +124,7 @@ def student_terminal_result(request,pk, *args, **kwargs):
 
 
    #     {% for marks in first_terminal_marks %}
-    if student_data.class_name == 'X':
+    if student_data.class_name == 'IX' or student_data.class_name == 'X':
          html_file = 'class_wise_marksheet/class_x_marksheet.html'
     elif student_data.class_name == 'VI' or student_data.class_name == 'VII' or student_data.class_name == 'VIII':
         html_file = 'class_wise_marksheet/class_vi_to_viii_marksheet.html'
