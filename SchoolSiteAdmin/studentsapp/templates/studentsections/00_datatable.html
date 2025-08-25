@@ -25,12 +25,12 @@
                 </tr>
               </thead>
               <tbody>
-                 <tr>
+                
                 {% for data in studentdb %}
 
                   {% if data.class_name == alias_name %}
                       
-
+                  <tr>
  
                       <th scope="row">{{ data.pk }}</th>
                       <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>

@@ -156,16 +156,6 @@
         padding: 2px 8px;
         border-radius: 5px;
     }
-    .failed
-    {
-        color: #d64309;
-        font-weight: bold;
-        font-size: 1.09rem;
-        letter-spacing: 1px;
-        background: #ffffff;
-        padding: 2px 8px;
-        border-radius: 5px;
-    }
     @media print {
         body { margin: 0; }
         .container { border: none; }
@@ -211,7 +201,7 @@
                     <div class="school-title">ST. THOMAS SCHOOL</div>
                     <div class="school-address">AGIAMORE, GODDA, JHARKHAND – 814133 &nbsp; Ph: +91-9006547683</div>
                     <div class="gray-box">ACADEMIC SESSION ({{ student.academic_session }})</div>
-                    <!-- <div>class 10 Marksheet</div> -->
+                    <div>class I-V Marksheet</div>
                 </div>
             </td>
         </tr>
@@ -269,6 +259,12 @@
                                 <td>HINDI</td><td>100</td><td>50</td><td>{{ first_terminal_hindi_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
+                                <td>MATHEMATICS</td><td>100</td><td>50</td><td>{{ first_terminal_mathematics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>  
+                            <tr>
+                                <td>SCIENCE</td><td>100</td><td>50</td><td>{{ first_terminal_science_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
                                 <td>PHYSICS</td><td>100</td><td>50</td><td>{{ first_terminal_physics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
@@ -283,9 +279,13 @@
                             <tr>
                                 <td>GEOGRAPHY</td><td>100</td><td>50</td><td>{{ first_terminal_geography_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
-                             <tr>
-                                <td>MATHEMATICS</td><td>100</td><td>50</td><td>{{ first_terminal_mathematics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+
+                            <tr>
+                                <td>GENERAL KNOWLEDGE</td><td>100</td><td>50</td><td>{{ first_terminal_general_knowledge_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>   
+                            <tr>
+                                <td>MORAL SCIENCE</td><td>100</td><td>50</td><td>{{ first_terminal_moral_science_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>                                                  
                             <tr>
                                 <td>COMPUTER</td><td>100</td><td>50</td><td>{{ first_terminal_computer_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
@@ -348,23 +348,7 @@
                         </tr>
                         <tr>
                             <td>MY RANK</td>
-                            <td>
-
-                                    {% if first_terminal_my_rank == 1 %}
-                                            {{ first_terminal_my_rank }}st
-                                    {% endif %}
-                                    {% if first_terminal_my_rank == 2 %}
-                                            {{ first_terminal_my_rank }}nd
-                                     {% endif %}
-                                    {% if first_terminal_my_rank == 3 %}
-                                            {{ first_terminal_my_rank }}rd
-                                     {% endif %}
-
-                                    {% if first_terminal_my_rank > 3 %}
-                                            {{ first_terminal_my_rank }}th
-                                    {% endif %} 
-
-                            </td>
+                            <td>{{ first_terminal_my_rank }}</td>
                             <td><!-- SECOND_TERMINAL_MY_RANK --></td>
                             <td><!-- THIRD_TERMINAL_MY_RANK --></td>
                         </tr>
@@ -402,20 +386,7 @@
                         <table class="attendance-table" style="border: 2px solid black;">
                             <tr>
                                 <td><b>FINAL RESULT</b> </td>
-                                {% if final_result == 'PASSED' %}
-
-                                <td><span class="promoted">{{ final_result }}</span></td>
-
-                                {% endif %}
-
-                                {% if final_result == 'FAILED' %}
-
-                                <td><span class="failed">{{ final_result }}</span></td>
-
-                                {% endif %}
-
-
-                                
+                                <td><span class="promoted">PASSED AND PROMOTED</span></td>
                             </tr>
                         </table>
                       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/>
