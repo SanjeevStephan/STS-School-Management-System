@@ -348,7 +348,23 @@
                         </tr>
                         <tr>
                             <td>MY RANK</td>
-                            <td>{{ first_terminal_my_rank }}</td>
+                            <td>
+
+                                    {% if first_terminal_my_rank == 1 %}
+                                            {{ first_terminal_my_rank }}st
+                                    {% endif %}
+                                    {% if first_terminal_my_rank == 2 %}
+                                            {{ first_terminal_my_rank }}nd
+                                     {% endif %}
+                                    {% if first_terminal_my_rank == 3 %}
+                                            {{ first_terminal_my_rank }}rd
+                                     {% endif %}
+
+                                    {% if first_terminal_my_rank > 3 %}
+                                            {{ first_terminal_my_rank }}th
+                                    {% endif %} 
+
+                            </td>
                             <td><!-- SECOND_TERMINAL_MY_RANK --></td>
                             <td><!-- THIRD_TERMINAL_MY_RANK --></td>
                         </tr>
@@ -386,7 +402,19 @@
                         <table class="attendance-table" style="border: 2px solid black;">
                             <tr>
                                 <td><b>FINAL RESULT</b> </td>
-                                <td><span class="promoted">PASSED AND PROMOTED</span></td>
+                                <td><b>FINAL RESULT</b> </td>
+                                {% if final_result == 'PASSED' %}
+
+                                <td><span class="promoted">{{ final_result }}</span></td>
+
+                                {% endif %}
+
+                                {% if final_result == 'FAILED' %}
+
+                                <td><span class="failed">{{ final_result }}</span></td>
+
+                                {% endif %}
+
                             </tr>
                         </table>
                       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/>
