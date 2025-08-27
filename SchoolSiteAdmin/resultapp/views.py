@@ -31,7 +31,9 @@ def result_app_view(request, pk):
 #     session_id = getSessionID(pk)
 
 def student_terminal_result(request,pk, *args, **kwargs):
-    pass_marks = 35
+    lang_pass_marks = 40
+    rest_subj_pass_marks = 35
+    min_grade = "C"
     student_data = StudentModel.objects.get(id=pk)
     session_id = getSessionID(pk)
 
@@ -63,54 +65,86 @@ def student_terminal_result(request,pk, *args, **kwargs):
 
     for marks in first_terminal_marks:
 
+        first_terminal_english_mark = marks.english
         first_terminal_english_lang_mark = marks.english_language
         first_terminal_english_lit_mark = marks.english_literature
         first_terminal_hindi_mark = marks.hindi
         first_terminal_sanskrit_mark = marks.sanskrit
+        first_terminal_social_studies_mark = marks.social_studies
+        first_terminal_moral_science_mark = marks.moral_science
+        first_terminal_general_knowledge_mark = marks.general_knowledge
+       
+        first_terminal_science_mark = marks.science
         first_terminal_physics_mark = marks.physics
         first_terminal_chemistry_mark = marks.chemistry
         first_terminal_biology_mark = marks.biology
+        first_terminal_mathematics_mark = marks.mathematics
+        first_terminal_computer_mark = marks.computer
+
+        first_terminal_drawing_mark = marks.drawing
+        first_terminal_handwriting_mark  = marks.handwriting
+        first_terminal_reading_mark = marks.reading
+        # first_terminal_spelling_mark = marks.spelling
+      #  first_terminal_dictation_mark = marks.dictation
+
+        first_terminal_supw  = marks.supw
+
+        first_terminal_conversation_mark = marks.conversation
+        first_terminal_rhymes_mark = marks.rhymes
+
+        first_terminal_environmental_studies = marks.environmental_studies
         first_terminal_history_mark = marks.history
         first_terminal_geography_mark = marks.geography
-        first_terminal_mathematics_mark = marks.mathematics
-        first_terminal_general_knowledge_mark = marks.general_knowledge
-        first_terminal_moral_science_mark = marks.moral_science
-        first_terminal_computer_mark = marks.computer
-        first_terminal_science_mark = marks.science
+  
         first_terminal_total_marks  = marks.total_marks
         first_terminal_percentage  = marks.percentage
-        first_terminal_supw  = marks.supw
+
         first_terminal_working_days = marks.working_days
         first_terminal_days_present = marks.days_present
         first_terminal_total_students = marks.total_students
+
         first_terminal_first_rank = marks.first_rank
         first_terminal_my_rank = marks.my_rank
+        # first_terminal_spelling_marks = marks.spelling
         final_result = marks.final_result
 
     context = {
         'student' : student_data,
         'first_terminal_marks' : first_terminal_marks,
         'session_id' : session_id,
-        'pass_marks' : pass_marks,
-    
+        'lang_pass_marks' : lang_pass_marks,
+        'min_grade' : min_grade,
+        'rest_subj_pass_marks' : rest_subj_pass_marks,
+        'first_terminal_english_mark' : first_terminal_english_mark,
         'first_terminal_english_lang_mark':first_terminal_english_lang_mark,
         'first_terminal_english_lit_mark':first_terminal_english_lit_mark,
         'first_terminal_hindi_mark':first_terminal_hindi_mark,
         'first_terminal_sanskrit_mark' : first_terminal_sanskrit_mark,
+        'first_terminal_social_studies_mark' : first_terminal_social_studies_mark,
+        'first_terminal_moral_science_mark' : first_terminal_moral_science_mark,
+        'first_terminal_general_knowledge_mark' : first_terminal_general_knowledge_mark,
+        'first_terminal_science_mark' : first_terminal_science_mark,
         'first_terminal_physics_mark':first_terminal_physics_mark,
         'first_terminal_chemistry_mark':first_terminal_chemistry_mark,
         'first_terminal_biology_mark':first_terminal_biology_mark,
-        'first_terminal_history_mark':first_terminal_history_mark,
-        'first_terminal_geography_mark':first_terminal_geography_mark,  
         'first_terminal_mathematics_mark':first_terminal_mathematics_mark,
-        'first_terminal_general_knowledge_mark' : first_terminal_general_knowledge_mark,
-        'first_terminal_moral_science_mark' : first_terminal_moral_science_mark,
         'first_terminal_computer_mark':first_terminal_computer_mark,  
 
-        'first_terminal_science_mark' : first_terminal_science_mark,
+        'first_terminal_drawing_mark' : first_terminal_drawing_mark,
+        'first_terminal_handwriting_mark' : first_terminal_handwriting_mark,
+        'first_terminal_reading_mark' : first_terminal_reading_mark,
+        # 'first_terminal_spelling_mark' : first_terminal_spelling_mark,
+        # 'first_terminal_dictation_mark' : first_terminal_dictation_mark,
+        'first_terminal_supw' : first_terminal_supw,
+        'first_terminal_conversation_mark' : first_terminal_conversation_mark,
+        'first_terminal_ryhmes_mark' : first_terminal_rhymes_mark,
+        'first_terminal_environmental_studies' : first_terminal_environmental_studies,
+
+        'first_terminal_history_mark':first_terminal_history_mark,
+        'first_terminal_geography_mark':first_terminal_geography_mark,  
+
         'first_terminal_total_marks':first_terminal_total_marks,  
         'first_terminal_percentage':first_terminal_percentage, 
-        'first_terminal_supw' : first_terminal_supw,
 
         'first_terminal_working_days' : first_terminal_working_days,
         'first_terminal_days_present' : first_terminal_days_present,
@@ -118,6 +152,8 @@ def student_terminal_result(request,pk, *args, **kwargs):
         'first_terminal_first_rank' : first_terminal_first_rank,
         'first_terminal_my_rank' : first_terminal_my_rank,
     
+
+
         'final_result' : final_result
     }
 
@@ -147,12 +183,22 @@ def student_terminal_result(request,pk, *args, **kwargs):
 
 
    #     {% for marks in first_terminal_marks %}
-    if student_data.class_name == 'IX' or student_data.class_name == 'X':
-         html_file = 'class_wise_marksheet/class_x_marksheet.html'
-    elif student_data.class_name == 'I' or student_data.class_name == 'II' or student_data.class_name == 'III' or student_data.class_name == 'IV' or student_data.class_name == 'V':
+    if student_data.class_name == 'I' or student_data.class_name == 'II':
+        html_file =  'class_wise_marksheet/class_i_and_ii_marksheet.html'
+    elif student_data.class_name == 'III' or student_data.class_name == 'IV' or student_data.class_name == 'V':
          html_file =  'class_wise_marksheet/class_i_to_v_marksheet.html'
     elif student_data.class_name == 'VI' or student_data.class_name == 'VII' or student_data.class_name == 'VIII':
         html_file = 'class_wise_marksheet/class_vi_to_viii_marksheet.html'
+    elif student_data.class_name == 'IX' or student_data.class_name == 'X':
+         html_file = 'class_wise_marksheet/class_x_marksheet.html'
+
+    # elif student_data.class_name == 'IV' :
+    #      html_file =  'class_wise_marksheet/class_iv_marksheet.html'
+
+
+
+
+
     else:
          html_file = 'student_marksheet.html'
 

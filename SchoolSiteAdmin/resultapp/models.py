@@ -24,7 +24,7 @@ CLASS_CHOICES = (
     # Add more as needed
 )
 
-SUPW_CHOICES = (
+GRADE_CHOICES = (
     ('A', 'A'),
     ('B', 'B'),
     ('C', 'C'),
@@ -60,6 +60,8 @@ class TerminalExamMarksModel(models.Model):
     terminal_exam  = models.CharField(max_length=6, choices=TERMINAL_CHOICES)
     # class_name     = models.ForeignKey(ClassOptionsModel, on_delete=models.CASCADE, blank=True,null=True)
     roll_number    = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE, blank=True, null=True)
+    
+    
     ## First Terminal Subject's Marks 
     english    = models.IntegerField(blank=True, null=True)
     english_language  = models.IntegerField(blank=True, null=True)
@@ -80,13 +82,18 @@ class TerminalExamMarksModel(models.Model):
     computer     = models.IntegerField(blank=True, null=True)    
 
 
-    ## Junior Classes Subjects
-    drawing = models.IntegerField(blank=True, null=True)    
-    handwriting = models.IntegerField(blank=True, null=True)    
+    ## Junior Classes Subjects | GRADE
+    drawing = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+    handwriting = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+    reading = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+    # spelling = models.IntegerField(blank=True,null=True)
+    # dictation = models.IntegerField(blank=True,null=True)
+    supw = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+
     conversation = models.IntegerField(blank=True, null=True)    
     rhymes = models.IntegerField(blank=True, null=True)    
     environmental_studies = models.IntegerField(blank=True, null=True)    
-    english_hindi_reading = models.IntegerField(blank=True, null=True)   
+
     ## Higher Classes Subjects 
     history = models.IntegerField(blank=True, null=True)    
     geography = models.IntegerField(blank=True, null=True)    
@@ -94,7 +101,7 @@ class TerminalExamMarksModel(models.Model):
 
     total_marks = models.IntegerField(blank=True, null=True)
     percentage = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True)
-    supw = models.CharField(max_length=1, choices=SUPW_CHOICES, blank=True, null=True)
+
 
     ## Attendance_days
     working_days = models.IntegerField(blank=True, null=True)
