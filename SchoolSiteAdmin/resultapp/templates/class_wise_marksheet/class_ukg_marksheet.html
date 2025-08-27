@@ -100,7 +100,7 @@
         width: 100%;
         border-collapse: collapse;
         background: #fff;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     .marks-table th, .marks-table td,
     .attendance-table th, .attendance-table td,
@@ -180,7 +180,7 @@
     }
     img
     {
-        width: 120px;
+        width: 100px;
         height: auto;
     }
     .center-image {
@@ -211,7 +211,7 @@
                     <div class="school-title">ST. THOMAS SCHOOL</div>
                     <div class="school-address">AGIAMORE, GODDA, JHARKHAND – 814133 &nbsp; Ph: +91-9006547683</div>
                     <div class="gray-box">ACADEMIC SESSION ({{ student.academic_session }})</div>
-                    <!-- <div>class 10 Marksheet</div> -->
+                    <!-- <div>class LKG-UKG Marksheet</div> -->
                 </div>
             </td>
         </tr>
@@ -260,49 +260,45 @@
 
 
                             <tr>
-                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_english_lang_mark }}</td><td> </td><td> </td><td> </td>
+                                <td>ENGLISH</td><td>100</td><td>{{ lang_pass_marks }} </td><td>{{ first_terminal_english_mark }}</td><td> </td><td> </td><td> </td>
                             </tr>
                             <tr>
-                                <td>ENGLISH LITERATURE</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_english_lit_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>HINDI</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ lang_pass_marks }} </td><td>{{ first_terminal_hindi_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>HINDI</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_hindi_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>MATHEMATICS</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_mathematics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>  
+                            <tr>
+                                <td>ENVIRONMENTAL STUDIES</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_environmental_studies }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>PHYSICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_physics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>CONVERSATION</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_conversation_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>CHEMISTRY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_chemistry_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>DICTATION</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_dictation_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>BIOLOGY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_biology_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>RHYMES</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_ryhmes_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>HISTORY AND CIVICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_history_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>HANDWRITING</td><td>A</td><td>{{ min_grade }}</td><td>{{ first_terminal_handwriting_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>GEOGRAPHY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_geography_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                                <td>DRAWING</td><td>A</td><td>{{ min_grade }}</td><td>{{ first_terminal_drawing_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
-                             <tr>
-                                <td>MATHEMATICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_mathematics_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
-                            </tr>   
                             <tr>
-                                <td>COMPUTER</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_computer_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
-                            </tr>
-       
-                            <tr>
-                                <th>TOTAL</th><th>1000</th><th>500</th><th>{{ first_terminal_total_marks }}</th><th><!-- SECOND TOTAL --></th><th><!-- 3RD_TERMINAL --></th><th><!-- TOTAL --></th>
+                                <th>TOTAL</th><th>1000</th><th>500</th><th><!--{{ first_terminal_total_marks }}-->{{ class_ukg_total_marks }}</th><th><!-- SECOND TOTAL --></th><th><!-- 3RD_TERMINAL --></th><th><!-- TOTAL --></th>
                             </tr>
                             <tr>
                                 <th>PERCENTAGE</th><th></th><th></th><th>{{ first_terminal_percentage }}</th><th><!-- 2ND_PERCENTAGE --></th><th></th><th><!-- 3RD_PERCENTAGE --></th>
                             </tr>
                         </table>
 
-                        <table class="marks-table">
+                        <!-- <table class="marks-table">
                             <tr>
-                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_supw }}</th><th> {{ second_terminal_supw }}</th><th> &nbsp;</th><th> -</th>
+                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_supw }}</th><th> {{ second_terminal_supw }}</th><th> &nbsp;</th><th> </th>
                             </tr>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>
@@ -401,7 +397,14 @@
 
                         <table class="attendance-table" style="border: 2px solid black;">
                             <tr>
+                
                                 <td><b>FINAL RESULT</b> </td>
+                                {% if final_result == 'PROMOTED' %}
+
+                                <td><span class="promoted">{{ final_result }}</span></td>
+
+                                {% endif %}
+
                                 {% if final_result == 'PASSED' %}
 
                                 <td><span class="promoted">{{ final_result }}</span></td>
@@ -416,15 +419,16 @@
 
                             </tr>
                         </table>
-                      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/>
+                      <br/><br/><br/><br/><br/>
+                      <center>  <p><small>Session ID: <strong>{{ session_id }}</strong></p></small></center>
                 </div>
                
             </div>
         </td>
     </tr>
-        <tr>
+        <!-- <tr>
         <td><center>  <p><small>Session ID: <strong>{{ session_id }}</strong></p></small></center></td>
-    </tr>
+    </tr> -->
 </table>
 <!-- <table>
 

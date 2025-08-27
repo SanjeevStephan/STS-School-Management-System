@@ -100,7 +100,7 @@
         width: 100%;
         border-collapse: collapse;
         background: #fff;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     .marks-table th, .marks-table td,
     .attendance-table th, .attendance-table td,
@@ -156,6 +156,16 @@
         padding: 2px 8px;
         border-radius: 5px;
     }
+    .failed
+    {
+        color: #d64309;
+        font-weight: bold;
+        font-size: 1.09rem;
+        letter-spacing: 1px;
+        background: #ffffff;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
     @media print {
         body { margin: 0; }
         .container { border: none; }
@@ -170,7 +180,7 @@
     }
     img
     {
-        width: 120px;
+        width: 100px;
         height: auto;
     }
     .center-image {
@@ -201,7 +211,7 @@
                     <div class="school-title">ST. THOMAS SCHOOL</div>
                     <div class="school-address">AGIAMORE, GODDA, JHARKHAND – 814133 &nbsp; Ph: +91-9006547683</div>
                     <div class="gray-box">ACADEMIC SESSION ({{ student.academic_session }})</div>
-                    <div>class I-V Marksheet</div>
+                    <!-- <div>class I-V Marksheet</div> -->
                 </div>
             </td>
         </tr>
@@ -274,23 +284,22 @@
                                 <td>COMPUTER</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_computer_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
-                                <td>READING</td><td>100</td><td>{{ min_grade }}</td><td>{{ first_terminal_reading_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
-                            </tr>
-                            <tr>
-                                <td>DRAWING</td><td>100</td><td>{{ min_grade }}</td><td>{{ first_terminal_drawing_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
-                            </tr>
-                            <tr>
                                 <td>CONVERSATION</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_conversation_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
                                 <td>DICTATION</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_dictation_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
                             <tr>
+                                <td>READING</td><td>100</td><td>{{ min_grade }}</td><td>{{ first_terminal_reading_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
                                 <td>HANDWRITING</td><td>100</td><td>{{ min_grade }}</td><td>{{ first_terminal_handwriting_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
                             </tr>
-
                             <tr>
-                                <th>TOTAL</th><th>1000</th><th>500</th><th>{{ first_terminal_total_marks }}</th><th><!-- SECOND TOTAL --></th><th><!-- 3RD_TERMINAL --></th><th><!-- TOTAL --></th>
+                                <td>DRAWING</td><td>100</td><td>{{ min_grade }}</td><td>{{ first_terminal_drawing_mark }}</td><td><!-- 2ND_TERMINAL --></td><td><!-- 3RD_TERMINAL --></td><td><!-- AVERAGE --></td>
+                            </tr>
+                            <tr>
+                                <th>TOTAL</th><th>1000</th><th>500</th><th><!--{{ first_terminal_total_marks }}-->{{ class_i_ii_total_marks }}</th><th><!-- SECOND TOTAL --></th><th><!-- 3RD_TERMINAL --></th><th><!-- TOTAL --></th>
                             </tr>
                             <tr>
                                 <th>PERCENTAGE</th><th></th><th></th><th>{{ first_terminal_percentage }}</th><th><!-- 2ND_PERCENTAGE --></th><th></th><th><!-- 3RD_PERCENTAGE --></th>
@@ -299,7 +308,7 @@
 
                         <table class="marks-table">
                             <tr>
-                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_supw }}</th><th> {{ second_terminal_supw }}</th><th> &nbsp;</th><th> -</th>
+                                <th colspan="3">SUPW</th></th><th>{{ first_terminal_supw }}</th><th> {{ second_terminal_supw }}</th><th> &nbsp;</th><th> </th>
                             </tr>
                         </table>
                     </div>
@@ -400,8 +409,14 @@
 
                         <table class="attendance-table" style="border: 2px solid black;">
                             <tr>
+                
                                 <td><b>FINAL RESULT</b> </td>
-                                <td><b>FINAL RESULT</b> </td>
+                                {% if final_result == 'PROMOTED' %}
+
+                                <td><span class="promoted">{{ final_result }}</span></td>
+
+                                {% endif %}
+
                                 {% if final_result == 'PASSED' %}
 
                                 <td><span class="promoted">{{ final_result }}</span></td>
@@ -416,15 +431,16 @@
 
                             </tr>
                         </table>
-                      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/>
+                      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                      <center>  <p><small>Session ID: <strong>{{ session_id }}</strong></p></small></center>
                 </div>
                
             </div>
         </td>
     </tr>
-        <tr>
+        <!-- <tr>
         <td><center>  <p><small>Session ID: <strong>{{ session_id }}</strong></p></small></center></td>
-    </tr>
+    </tr> -->
 </table>
 <!-- <table>
 
