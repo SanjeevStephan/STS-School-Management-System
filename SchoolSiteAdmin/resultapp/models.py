@@ -48,60 +48,54 @@ FINAL_RESULT_CHOICES = (
     ('PROMOTED','PROMOTED')
 )
 
-
 current_session = '2025-26'
 
 # Create your models here.
 class TerminalExamMarksModel(models.Model):
     # student_name = models.ForeignKey(StudentModel, on_delete=models.CASCADE)
-    student_name = models.CharField(max_length=200, blank=True, null=True)
-    class_name   = models.CharField(max_length=20, choices=CLASS_CHOICES)
+    student_name     = models.CharField(max_length=200, blank=True, null=True)
+    class_name       = models.CharField(max_length=20, choices=CLASS_CHOICES)
     academic_session = models.CharField(max_length=10, choices=SESSION_CHOICES) ## SHOW
-    terminal_exam  = models.CharField(max_length=6, choices=TERMINAL_CHOICES)
+    terminal_exam    = models.CharField(max_length=6, choices=TERMINAL_CHOICES)
     # class_name     = models.ForeignKey(ClassOptionsModel, on_delete=models.CASCADE, blank=True,null=True)
-    roll_number    = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE, blank=True, null=True)
-    
+    roll_number      = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE, blank=True, null=True)
     
     ## First Terminal Subject's Marks 
-    english    = models.IntegerField(blank=True, null=True)
-    english_language  = models.IntegerField(blank=True, null=True)
-    english_literature = models.IntegerField(blank=True, null=True)
-    hindi      = models.IntegerField(blank=True, null=True)
-    sanskrit   = models.IntegerField(blank=True, null=True)
-    social_studies = models.IntegerField(blank=True, null=True)
-    moral_science = models.IntegerField(blank=True, null=True)    
-    general_knowledge = models.IntegerField(blank=True, null=True)    
-
+    english             = models.IntegerField(default=0)
+    english_language    = models.IntegerField(default=0)
+    english_literature  = models.IntegerField(default=0)
+    hindi               = models.IntegerField(default=0)
+    sanskrit            = models.IntegerField(default=0)
+    social_studies      = models.IntegerField(default=0)
+    moral_science       = models.IntegerField(default=0)    
+    general_knowledge   = models.IntegerField(default=0)    
 
     ## Science Subjects
-    science      = models.IntegerField(blank=True, null=True) 
-    physics      = models.IntegerField(blank=True, null=True) 
-    chemistry    = models.IntegerField(blank=True, null=True) 
-    biology      = models.IntegerField(blank=True, null=True) 
-    mathematics  = models.IntegerField(blank=True, null=True) 
-    computer     = models.IntegerField(blank=True, null=True)    
-
+    science      = models.IntegerField(default=0) 
+    physics      = models.IntegerField(default=0) 
+    chemistry    = models.IntegerField(default=0) 
+    biology      = models.IntegerField(default=0) 
+    mathematics  = models.IntegerField(default=0) 
+    computer     = models.IntegerField(default=0)    
 
     ## Junior Classes Subjects | GRADE
-    drawing = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+    drawing     = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
     handwriting = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
-    reading = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
-    # spelling = models.IntegerField(blank=True,null=True)
-    # dictation = models.IntegerField(blank=True,null=True)
+    reading     = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
+    spelling    = models.IntegerField(default=0)    
+    dictation   = models.IntegerField(default=0)    
     supw = models.CharField(max_length=1, choices=GRADE_CHOICES, blank=True, null=True)
 
-    conversation = models.IntegerField(blank=True, null=True)    
-    rhymes = models.IntegerField(blank=True, null=True)    
-    environmental_studies = models.IntegerField(blank=True, null=True)    
+    conversation = models.IntegerField(default=0)    
+    rhymes = models.IntegerField(default=0)    
+    environmental_studies = models.IntegerField(default=0)    
 
     ## Higher Classes Subjects 
-    history = models.IntegerField(blank=True, null=True)    
-    geography = models.IntegerField(blank=True, null=True)    
+    history   = models.IntegerField(default=0)    
+    geography = models.IntegerField(default=0)    
 
-
-    total_marks = models.IntegerField(blank=True, null=True)
-    percentage = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True)
-
+    total_marks = models.IntegerField(default=0)
+    percentage  = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True)
 
     ## Attendance_days
     working_days = models.IntegerField(blank=True, null=True)
@@ -113,7 +107,6 @@ class TerminalExamMarksModel(models.Model):
     my_rank     = models.IntegerField(blank=True, null=True)
 
     final_result = models.CharField(max_length=10, choices=FINAL_RESULT_CHOICES, blank=True, null=True)
-
 
     def __str__(self):
         return f'{self.student_name} '

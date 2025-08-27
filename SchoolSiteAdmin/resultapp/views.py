@@ -31,9 +31,9 @@ def result_app_view(request, pk):
 #     session_id = getSessionID(pk)
 
 def student_terminal_result(request,pk, *args, **kwargs):
-    lang_pass_marks = 40
-    rest_subj_pass_marks = 35
-    min_grade = "C"
+    # lang_pass_marks = 
+    # rest_subj_pass_marks = 
+    # min_grade = 
     student_data = StudentModel.objects.get(id=pk)
     session_id = getSessionID(pk)
 
@@ -84,8 +84,8 @@ def student_terminal_result(request,pk, *args, **kwargs):
         first_terminal_drawing_mark = marks.drawing
         first_terminal_handwriting_mark  = marks.handwriting
         first_terminal_reading_mark = marks.reading
-        # first_terminal_spelling_mark = marks.spelling
-      #  first_terminal_dictation_mark = marks.dictation
+        first_terminal_spelling_mark = marks.spelling
+        first_terminal_dictation_mark = marks.dictation
 
         first_terminal_supw  = marks.supw
 
@@ -112,9 +112,11 @@ def student_terminal_result(request,pk, *args, **kwargs):
         'student' : student_data,
         'first_terminal_marks' : first_terminal_marks,
         'session_id' : session_id,
-        'lang_pass_marks' : lang_pass_marks,
-        'min_grade' : min_grade,
-        'rest_subj_pass_marks' : rest_subj_pass_marks,
+        'lang_pass_marks' : 40,
+        'min_grade' : "C",
+        'rest_subj_pass_marks' : 35,
+        'lkg_ukg_full_marks' : 100,
+        'lkg_ukg_pass_marks' : 35,
         'first_terminal_english_mark' : first_terminal_english_mark,
         'first_terminal_english_lang_mark':first_terminal_english_lang_mark,
         'first_terminal_english_lit_mark':first_terminal_english_lit_mark,
@@ -133,8 +135,8 @@ def student_terminal_result(request,pk, *args, **kwargs):
         'first_terminal_drawing_mark' : first_terminal_drawing_mark,
         'first_terminal_handwriting_mark' : first_terminal_handwriting_mark,
         'first_terminal_reading_mark' : first_terminal_reading_mark,
-        # 'first_terminal_spelling_mark' : first_terminal_spelling_mark,
-        # 'first_terminal_dictation_mark' : first_terminal_dictation_mark,
+        'first_terminal_spelling_mark' : first_terminal_spelling_mark,
+        'first_terminal_dictation_mark' : first_terminal_dictation_mark,
         'first_terminal_supw' : first_terminal_supw,
         'first_terminal_conversation_mark' : first_terminal_conversation_mark,
         'first_terminal_ryhmes_mark' : first_terminal_rhymes_mark,
@@ -180,17 +182,27 @@ def student_terminal_result(request,pk, *args, **kwargs):
     # first_terminal_marks = TerminalExamMarksModel.objects.get(id=pk)
 
     # return render(request, 'student_marksheet.html', context)
-
+    
 
    #     {% for marks in first_terminal_marks %}
-    if student_data.class_name == 'I' or student_data.class_name == 'II':
+    if student_data.class_name == 'LKG':
+        html_file =  'class_wise_marksheet/class_lkg_marksheet.html'
+    elif student_data.class_name == 'UKG':
+        html_file =  'class_wise_marksheet/class_ukg_marksheet.html'
+    elif student_data.class_name == 'I' or student_data.class_name == 'II':
         html_file =  'class_wise_marksheet/class_i_and_ii_marksheet.html'
-    elif student_data.class_name == 'III' or student_data.class_name == 'IV' or student_data.class_name == 'V':
-         html_file =  'class_wise_marksheet/class_i_to_v_marksheet.html'
-    elif student_data.class_name == 'VI' or student_data.class_name == 'VII' or student_data.class_name == 'VIII':
-        html_file = 'class_wise_marksheet/class_vi_to_viii_marksheet.html'
+    elif student_data.class_name == 'III':
+        html_file = "class_wise_marksheet/class_iii_marksheet.html"
+    elif student_data.class_name == 'IV':
+        html_file = "class_wise_marksheet/class_iv_marksheet.html"
+    elif student_data.class_name == 'V':
+        html_file =  'class_wise_marksheet/class_v_marksheet.html'
+    elif student_data.class_name == 'VI' or student_data.class_name == 'VII':
+        html_file = 'class_wise_marksheet/class_vi_to_vii_marksheet.html'  
+    elif student_data.class_name == 'VIII':
+        html_file = 'class_wise_marksheet/class_viii_marksheet.html'
     elif student_data.class_name == 'IX' or student_data.class_name == 'X':
-         html_file = 'class_wise_marksheet/class_x_marksheet.html'
+        html_file = 'class_wise_marksheet/class_xi_to_x_marksheet.html'
 
     # elif student_data.class_name == 'IV' :
     #      html_file =  'class_wise_marksheet/class_iv_marksheet.html'
@@ -202,8 +214,15 @@ def student_terminal_result(request,pk, *args, **kwargs):
     else:
          html_file = 'student_marksheet.html'
 
-
-
+    context['class_ix_x_total_marks']   = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_physics_mark + first_terminal_chemistry_mark + first_terminal_biology_mark + first_terminal_history_mark + first_terminal_geography_mark + first_terminal_mathematics_mark + first_terminal_computer_mark
+    context['class_viii_total_marks']   = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_physics_mark + first_terminal_chemistry_mark + first_terminal_biology_mark + first_terminal_history_mark + first_terminal_geography_mark + first_terminal_mathematics_mark + first_terminal_computer_mark + first_terminal_general_knowledge_mark + first_terminal_moral_science_mark
+    context['class_vi_vii_total_marks'] = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_sanskrit_mark + first_terminal_physics_mark + first_terminal_chemistry_mark + first_terminal_biology_mark + first_terminal_history_mark + first_terminal_geography_mark + first_terminal_mathematics_mark + first_terminal_computer_mark + first_terminal_general_knowledge_mark + first_terminal_moral_science_mark
+    context['class_v_total_marks']      = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_sanskrit_mark + first_terminal_science_mark + first_terminal_mathematics_mark + first_terminal_social_studies_mark + first_terminal_computer_mark + first_terminal_moral_science_mark + first_terminal_general_knowledge_mark
+    context['class_iv_total_marks']     = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_science_mark + first_terminal_mathematics_mark + first_terminal_social_studies_mark + first_terminal_computer_mark + first_terminal_moral_science_mark + first_terminal_general_knowledge_mark + first_terminal_conversation_mark + first_terminal_spelling_mark
+    context['class_iii_total_marks']    = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_science_mark + first_terminal_mathematics_mark + first_terminal_social_studies_mark + first_terminal_computer_mark + first_terminal_moral_science_mark + first_terminal_general_knowledge_mark + first_terminal_conversation_mark + first_terminal_spelling_mark
+    context['class_i_ii_total_marks']   = first_terminal_english_lang_mark + first_terminal_english_lit_mark + first_terminal_hindi_mark + first_terminal_science_mark + first_terminal_mathematics_mark + first_terminal_computer_mark + first_terminal_moral_science_mark + first_terminal_general_knowledge_mark + first_terminal_conversation_mark + first_terminal_dictation_mark 
+    context['class_ukg_total_marks']    = first_terminal_english_mark + first_terminal_hindi_mark + first_terminal_mathematics_mark + first_terminal_environmental_studies + first_terminal_conversation_mark + first_terminal_dictation_mark + first_terminal_rhymes_mark
+    context['class_lkg_total_marks']    = first_terminal_english_mark + first_terminal_hindi_mark + first_terminal_mathematics_mark + first_terminal_conversation_mark + first_terminal_dictation_mark + first_terminal_rhymes_mark
 
     return render(request,html_file, context)
 

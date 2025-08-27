@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from .models import StudentModel
-
+from resultapp.models import TerminalExamMarksModel
 
 logo = f"{settings.STATIC_URL}{'img/school-logo.png'}"
 website = {
@@ -97,7 +97,6 @@ context =  {
 
 def getSessionID(pk):
     student_data = StudentModel.objects.get(id=pk)
-
     ## Generate Session ID : 
     slash = '/'
     dash = '-'
