@@ -12,63 +12,68 @@ website = {
 
 nav_menu = [
     {
+        'name' : 'Nursery',
+        'link' : "/students/Nursery",
+        'icon' : 'bi bi-person'
+    },
+    {
         'name' : 'LKG',
-        'link' : "/student/LKG",
+        'link' : "/students/LKG",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'UKG',
-        'link' : "/student/UKG",
+        'link' : "/students/UKG",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class I',
-        'link' : "/student/I",
+        'link' : "/students/I",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class II',
-        'link' : "/student/II",
+        'link' : "/students/II",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class III',
-        'link' : "/student/III",
+        'link' : "/students/III",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class IV',
-        'link' : "/student/IV",
+        'link' : "/students/IV",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class V',
-        'link' : "/student/V",
+        'link' : "/students/V",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class VI',
-        'link' : "/student/VI",
+        'link' : "/students/VI",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class VII',
-        'link' : "/student/VII",
+        'link' : "/students/VII",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class VIII',
-        'link' : "/student/VIII",
+        'link' : "/students/VIII",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class IX',
-        'link' : "/student/IX",
+        'link' : "/students/IX",
         'icon' : 'bi bi-person'
     },
     {
         'name' : 'Class X',
-        'link' : "/student/X",
+        'link' : "/students/X",
         'icon' : 'bi bi-person'
     }
 ]

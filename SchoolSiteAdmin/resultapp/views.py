@@ -30,6 +30,54 @@ def result_app_view(request, pk):
 #     student_data = StudentModel.objects.get(id=pk)
 #     session_id = getSessionID(pk)
 
+def get_remarks(first_terminal_percentage):
+    if 90 <= first_terminal_percentage <= 100:
+        return 'EXCELLENT'
+    elif 80 <= first_terminal_percentage < 90:
+        return 'VERY GOOD'
+    elif 60 <= first_terminal_percentage < 80:
+        return 'GOOD'
+    elif 40 <= first_terminal_percentage < 60:
+        return 'FARE'
+    elif 0 <= first_terminal_percentage < 40:
+        return 'FAILURE'
+
+
+    # if first_terminal_percentage >= 90 : 
+    #     return 'EXCELLENT'   
+    # elif first_terminal_percentage >= 80:
+    #     return 'VERY GOOD' 
+    # elif first_terminal_percentage >= 60:
+    #     return 'GOOD'
+    # elif first_terminal_percentage >= 40:
+    #     return 'FARE'
+    # else :
+    #     return 'FAILURE'
+
+def get_rank(first_terminal_my_rank):
+    if first_terminal_my_rank is None or first_terminal_my_rank == "None":
+        return ""
+    
+    try:
+        rank = int(first_terminal_my_rank)
+        # suffix = {1 : "st", 2 : "nd", 3 : "rd"}
+        # return f"{rank}{suffix}"
+        if first_terminal_my_rank == 1 : 
+            return f'{first_terminal_my_rank}st'   
+        elif first_terminal_my_rank == 2 : 
+            return f'{first_terminal_my_rank}nd'   
+        elif first_terminal_my_rank == 3 : 
+            return f'{first_terminal_my_rank}rd'   
+        else :
+            return f'{first_terminal_my_rank}th'   
+    except ValueError:
+        return ""
+  
+    # except ValueError:
+    #     return ''
+
+
+
 def student_terminal_result(request,pk, *args, **kwargs):
     # lang_pass_marks = 
     # rest_subj_pass_marks = 
@@ -152,7 +200,8 @@ def student_terminal_result(request,pk, *args, **kwargs):
         'first_terminal_days_present' : first_terminal_days_present,
         'first_terminal_total_students' : first_terminal_total_students,
         'first_terminal_first_rank' : first_terminal_first_rank,
-        'first_terminal_my_rank' : first_terminal_my_rank,
+        'first_terminal_my_rank' : get_rank(first_terminal_my_rank),
+        'student_remarks' : get_remarks(first_terminal_percentage),
     
 
 
@@ -186,31 +235,35 @@ def student_terminal_result(request,pk, *args, **kwargs):
 
    #     {% for marks in first_terminal_marks %}
     if student_data.class_name == 'LKG':
-        html_file =  'class_wise_marksheet/class_lkg_marksheet.html'
+        # html_file =  'class_wise_marksheet/class_lkg_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_lkg_marksheet.html'
     elif student_data.class_name == 'UKG':
-        html_file =  'class_wise_marksheet/class_ukg_marksheet.html'
+        # html_file =  'class_wise_marksheet/class_ukg_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_ukg_marksheet.html'
     elif student_data.class_name == 'I' or student_data.class_name == 'II':
-        html_file =  'class_wise_marksheet/class_i_and_ii_marksheet.html'
+        # html_file =  'class_wise_marksheet/class_i_and_ii_marksheet.html'
+        # html_file =  'terminal_wise_marksheet/for_first_terminal_only/class_i_and_ii_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_i_and_ii_marksheet.html'
     elif student_data.class_name == 'III':
-        html_file = "class_wise_marksheet/class_iii_marksheet.html"
+        html_file = "terminal_wise_marksheet/class_iii_marksheet.html"
     elif student_data.class_name == 'IV':
-        html_file = "class_wise_marksheet/class_iv_marksheet.html"
+        # html_file = "class_wise_marksheet/class_iv_marksheet.html"
+        html_file = 'terminal_wise_marksheet/class_iv_marksheet.html'
     elif student_data.class_name == 'V':
-        html_file =  'class_wise_marksheet/class_v_marksheet.html'
+        # html_file =  'class_wise_marksheet/class_v_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_v_marksheet.html'
     elif student_data.class_name == 'VI' or student_data.class_name == 'VII':
-        html_file = 'class_wise_marksheet/class_vi_to_vii_marksheet.html'  
+        # html_file = 'class_wise_marksheet/class_vi_to_vii_marksheet.html'  
+        html_file = 'terminal_wise_marksheet/class_vi_to_vii_marksheet.html'
     elif student_data.class_name == 'VIII':
-        html_file = 'class_wise_marksheet/class_viii_marksheet.html'
+        # html_file = 'class_wise_marksheet/class_viii_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_viii_marksheet.html'
     elif student_data.class_name == 'IX' or student_data.class_name == 'X':
-        html_file = 'class_wise_marksheet/class_xi_to_x_marksheet.html'
+        # html_file = 'modified_marksheet/class_xi_to_x_marksheet.html'
+        html_file = 'terminal_wise_marksheet/class_ix_to_x_marksheet.html'
 
     # elif student_data.class_name == 'IV' :
     #      html_file =  'class_wise_marksheet/class_iv_marksheet.html'
-
-
-
-
-
     else:
          html_file = 'student_marksheet.html'
 

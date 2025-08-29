@@ -95,7 +95,7 @@ class TerminalExamMarksModel(models.Model):
     geography = models.IntegerField(default=0)    
 
     total_marks = models.IntegerField(default=0)
-    percentage  = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True)
+    percentage  = models.DecimalField(default=0.0, max_digits=5, decimal_places=2,blank=True, null=True)
 
     ## Attendance_days
     working_days = models.IntegerField(blank=True, null=True)

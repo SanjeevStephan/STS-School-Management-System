@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('navigationapp.urls')),
     path('', include('studentsapp.urls')),
-    path('', include('resultapp.urls'))
+    path('', include('resultapp.urls')),
+    path('', include('crosslistsapp.urls'))
 ]
