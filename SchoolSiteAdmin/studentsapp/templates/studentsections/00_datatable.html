@@ -36,7 +36,8 @@
 
                       <tr>
                           <th scope="row">{{ data.pk }}</th>
-                          <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>
+                          <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">{{ data.student_name }}</a></td>
+                          <!--          <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td> -->
                           <td><a href='/admin/studentsapp/studentmodel/{{ data.pk }}/change/' target="_blank">Edit</a></td>
                           <td>{{ data.academic_session }}</td>
                           <td>{{ data.class_name }}</td>
