@@ -1,0 +1,66 @@
+
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+          <h5 class="card-title">Class {{ alias_name }} Student's Crosslists</h5>   
+
+            <p>Follow <a href="/admin" target="_blank">This Admin Panel</a> To Add Exam's Related Data to this Vault.</p>
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">S.No</th>
+                  <th scope="col">Student Name</th> 
+                  <th scope="col">Update Details</th>
+                  <th scope="col">Academic Session</th>
+                  <th scope="col">Class Name</th>            
+                  <th scope="col">Roll Number</th>
+                  <th scope="col">Session ID</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Update Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                {% for data in studentdb %}
+
+                  {% if data.class_name == alias_name %}
+                      
+
+
+                       {% if data.academic_session == '2025-26' %}
+
+                      <tr>
+                          <th scope="row">{{ data.pk }}</th>
+                          <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">{{ data.student_name }}</a></td>
+                          <!--          <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td> -->
+                          <td><a href='/admin/studentsapp/studentmodel/{{ data.pk }}/change/' target="_blank">Edit</a></td>
+                          <td>{{ data.academic_session }}</td>
+                          <td>{{ data.class_name }}</td>
+                          <td>{{ data.roll_no }}</td>
+                          <td>{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}</td>
+                          <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">Show</a></td>
+                          <td><a href="/admin/resultapp/terminalexammarksmodel/{{ data.pk }}/change/" target="_blank">Update</a></td>
+                      </tr>
+                           {% endif %}
+
+                    {% endif %}
+
+
+
+                {% endfor %}
+
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
