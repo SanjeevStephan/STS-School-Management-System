@@ -1,0 +1,24 @@
+                        <table class="attendance-table" style="border: 2px solid black;">
+                            <tr>
+                                <td><b>FINAL RESULT</b> </td>
+
+                                {% if final_result == 'PROMOTED' %}
+
+                                <td><span class="promoted">{{ final_result }}</span></td>
+
+                                {% endif %}
+
+                                {% if final_result == 'PASSED' %}
+
+                                <td><span class="promoted">{{ final_result }}</span></td>
+
+                                {% endif %}
+
+                                {% if final_result == 'FAILED' %}
+
+                                <td><span class="failed">{{ final_result }}</span></td>
+
+                                {% endif %}
+
+                            </tr>
+                        </table>

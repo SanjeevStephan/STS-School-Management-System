@@ -1,0 +1,26 @@
+                        <table class="attendance-table" style="border: 2px solid black;">
+                            <tr>
+                                <td><b>REMARKS</b> </td>
+
+                                {% if student_remarks == 'EXCELLENT' or student_remarks == 'VERY GOOD' or student_remarks == 'GOOD' %}
+
+                                <td><span class="promoted">{{ student_remarks }}</span></td>
+
+                                {% endif %}
+
+                                {% if student_remarks == 'FARE'  %}
+
+                                <td><span class="fare">{{ student_remarks }}</span></td>
+
+                                {% endif %}
+                                
+                                {% if student_remarks == 'FAILURE' %}
+
+                                <td><span class="failed">{{ student_remarks }}</span></td>
+
+                                {% endif %}
+
+                               
+
+                            </tr>
+                        </table>
