@@ -1,0 +1,50 @@
+                        <table class="marks-table">
+                            <tr>
+                                <th colspan="7">ACADEMIC PERFORMANCE</th>
+                            </tr>
+                            <tr>
+                                <th>SUBJECTS</th>
+                                <th>FULL MARKS</th>
+                                <th>PASS MARKS</th>
+                                <th>FIRST TEST</th>
+                                <!-- 
+                                <th>SECOND TEST</th>
+                                <th>THIRD TEST</th>
+                                <th>AVERAGE</th> -->
+                            </tr>
+
+
+                            <tr>
+                                <td>ENGLISH</td><td>100</td><td>{{ lang_pass_marks }} </td><td>{{ first_terminal_english_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>HINDI</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ lang_pass_marks }} </td><td>{{ first_terminal_hindi_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>MATHEMATICS</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_mathematics_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>  
+                            <tr>
+                                <td>ENVIRONMENTAL STUDIES</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_environmental_studies }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>CONVERSATION</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_conversation_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>DICTATION</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_dictation_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>RHYMES</td><td>{{ lkg_ukg_full_marks }}</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_ryhmes_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>HANDWRITING</td><td>A</td><td>{{ min_grade }}</td><td>{{ first_terminal_handwriting_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <td>DRAWING</td><td>A</td><td>{{ min_grade }}</td><td>{{ first_terminal_drawing_mark }}</td><!-- <td> </td><td> </td><td> </td> -->
+                            </tr>
+                            <tr>
+                                <th>TOTAL</th><th>1000</th><th>500</th><th><!--{{ first_terminal_total_marks }}-->{{ class_ukg_total_marks }}</th><!-- <th></th><th></th><th></th> -->
+                            </tr>
+                            <tr>
+                                <th>PERCENTAGE</th><th></th><th></th><th>{{ first_terminal_percentage }}</th><!-- <th></th><th></th><th></th> -->
+                            </tr>
+                        </table>
