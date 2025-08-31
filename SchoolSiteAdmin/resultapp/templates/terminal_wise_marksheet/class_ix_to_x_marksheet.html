@@ -147,41 +147,11 @@
         text-align: left;
         letter-spacing: 0.9px;
     }
-    .promoted {
-        color: #167200;
-        font-weight: bold;
-        font-size: 1.09rem;
-        letter-spacing: 1px;
-        background: #eaffea;
-        padding: 2px 8px;
-        border-radius: 5px;
-    }
-    .fare
-    {
-        color: #097ad6;
-        font-weight: bold;
-        font-size: 1.09rem;
-        letter-spacing: 1px;
-        background: #ffffff;
-        padding: 2px 8px;
-        border-radius: 5px;    
-    }
-    .failed
-    {
-        color: #d64309;
-        font-weight: bold;
-        font-size: 1.09rem;
-        letter-spacing: 1px;
-        background: #ffffff;
-        padding: 2px 8px;
-        border-radius: 5px;
-    }
+
     @media print {
         body { margin: 0; }
         .container { border: none; }
     }
-
-
     .vertical-text 
     {
         writing-mode: vertical-rl;
@@ -200,6 +170,8 @@
         /* margin-top: 05px; Optional: add spacing from the top */
     }
 </style>
+{% include 'terminal_wise_marksheet/stylesCode/exam_remarks.html' %}
+{% include 'terminal_wise_marksheet/stylesCode/crossed_subjects.html' %}
 </head>
 <body>
 
@@ -252,7 +224,7 @@
                          {% include 'marksheet_sections/sections/terminal_remarks.html' %}
 
 
-                      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                      <br/><br/><br/><br/><br/><br/><br/>
                       {% include 'marksheet_sections/sections/session_id.html' %}
                 </div>
                

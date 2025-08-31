@@ -1,0 +1,15 @@
+
+ {% for each in terminaldb %} 
+
+ 
+
+ <iframe src="http://127.0.0.1:8000/result/{{ each.academic_session }}/{{ each.class_name }}-A/{{ each.roll_number }}/sno/{{ each.pk }}" style="width:100%; border:none; height:fit-content" "></iframe> 
+
+ {% endfor %} 
+
+ <!-- <script>
+    // onload="resizeIFrame(this)
+ function resizeIFrame(iframe) {
+     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+ }
+ </script> -->
