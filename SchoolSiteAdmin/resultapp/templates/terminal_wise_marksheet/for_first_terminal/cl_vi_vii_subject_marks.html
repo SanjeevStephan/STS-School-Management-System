@@ -14,47 +14,144 @@
 
 
                             <tr>
-                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_english_lang_mark }}</td> <!-- <td> </td><td> </td><td> </td> -->
+                                <td>ENGLISH GRAMMAR</td><td>100</td><td>{{ lang_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_english_lang_mark < lang_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_english_lang_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_english_lang_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td> </td><td> </td><td> </td> -->
                             </tr>
                             <tr>
-                                <td>ENGLISH LITERATURE</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_english_lit_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>ENGLISH LITERATURE</td><td>100</td><td>{{ lang_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_english_lit_mark < lang_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_english_lit_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_english_lit_mark }} </span>
+                                    {% endif %}  
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>HINDI</td><td>100</td><td>{{ lang_pass_marks }}</td><td>{{ first_terminal_hindi_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>HINDI</td><td>100</td><td>{{ lang_pass_marks }}</td>
+                                <td>
+                              
+                                    {% if first_terminal_hindi_mark < lang_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_hindi_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_hindi_mark }} </span>
+                                    {% endif %}  
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>SANSKRIT</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_sanskrit_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>SANSKRIT</td><td>100</td><td>{{ lang_pass_marks }}</td>
+                                <td>
+                                  
+                                      {% if first_terminal_sanskrit_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_sanskrit_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_sanskrit_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>                        
                             <tr>
-                                <td>PHYSICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_physics_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>PHYSICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_physics_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_physics_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_physics_mark }} </span>
+                                    {% endif %}
+           
+                                </td><!-- <td></td><td></td><td></td>     -->
                             </tr>
                             <tr>
-                                <td>CHEMISTRY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_chemistry_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>CHEMISTRY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_chemistry_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_chemistry_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_chemistry_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>BIOLOGY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_biology_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>BIOLOGY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_biology_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_biology_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_biology_mark }} </span>
+                                    {% endif %}
+                               
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>HISTORY AND CIVICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_history_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>HISTORY AND CIVICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_history_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_history_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_history_mark }} </span>
+                                    {% endif %}
+                                   
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>GEOGRAPHY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_geography_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>GEOGRAPHY</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td> 
+                                    {% if first_terminal_geography_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_geography_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_geography_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                              <tr>
-                                <td>MATHEMATICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_mathematics_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>MATHEMATICS</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td> 
+                                    {% if first_terminal_mathematics_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_mathematics_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_mathematics_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>   
                             <tr>
-                                <td>GENERAL KNOWLEDGE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_general_knowledge_mark }}</td><!-- <td></td><td></td><td></td> -->
-                            </tr>
+                                <td>GENERAL KNOWLEDGE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_general_knowledge_mark < lang_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_general_knowledge_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_general_knowledge_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
+                            </tr>  
 
                             <tr>
-                                <td>MORAL SCIENCE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_moral_science_mark }}</td><!-- <td></td><td></td><td></td> -->
+                                <td>MORAL SCIENCE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                 
+                                    {% if first_terminal_moral_science_mark < lang_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_moral_science_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_moral_science_mark }} </span>
+                                    {% endif %}
+                                </td><!-- <td></td><td></td><td></td> -->
+                            </tr>  
+                            <tr>
+                                <td>COMPUTER</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
+                                <td>
+                                    {% if first_terminal_computer_mark < rest_subj_pass_marks %}
+                                        <span class="crossed"> {{ first_terminal_computer_mark }}</span>
+                                    {% else %}
+                                        <span>{{ first_terminal_computer_mark }} </span>
+                                    {% endif %}  
+                                </td><!-- <td></td><td></td><td></td> -->
                             </tr>
                             <tr>
-                                <td>COMPUTER</td><td>100</td><td>{{ rest_subj_pass_marks }}</td><td>{{ first_terminal_computer_mark }}</td><!-- <td></td><td></td><td></td> -->
-                            </tr>
-                            <tr>
-                                <th>TOTAL</th><th>1000</th><th>500</th><th><!--{{ first_terminal_total_marks }}-->{{ class_vi_vii_total_marks }} </th> <!-- <th></th><th></th><th></th> -->
+                                <th>TOTAL</th><th>{{ total_full_marks }}</th><th>{{ total_pass_marks }}</th><th><!--{{ first_terminal_total_marks }}-->{{ class_vi_vii_total_marks }} </th> <!-- <th></th><th></th><th></th> -->
                             </tr>
                             <tr>
                                 <th>PERCENTAGE</th><th></th><th></th><th>{{ first_terminal_percentage }}</th> <!-- <th></th><th></th><th></th> -->
