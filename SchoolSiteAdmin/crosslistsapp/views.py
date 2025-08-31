@@ -83,23 +83,23 @@ nav_menu = [
 
 
 
-def getTotalMarks():
-    # student_data = StudentModel.objects.get(id=pk)
-    # first_terminal_marks = TerminalExamMarksModel.objects.filter(
-    #         terminal_exam='first',
-    #         academic_session = student_data.academic_session,
-    #         class_name = student_data.class_name,
-    #         roll_number = student_data.roll_no,
-    #     )
+# def getTotalMarks():
+#     # student_data = StudentModel.objects.get(id=pk)
+#     # first_terminal_marks = TerminalExamMarksModel.objects.filter(
+#     #         terminal_exam='first',
+#     #         academic_session = student_data.academic_session,
+#     #         class_name = student_data.class_name,
+#     #         roll_number = student_data.roll_no,
+#     #     )
 
-    terminalexam = TerminalExamMarksModel.objects.all()
-    for marks in terminalexam:
-        totalmarks = (
-            marks.english_language + marks.english_literature + marks.hindi + marks.physics + marks.chemistry + marks.biology + 
-            marks.history + marks.geography + marks.mathematics + marks.computer
+#     terminalexam = TerminalExamMarksModel.objects.all()
+#     for marks in terminalexam:
+#         totalmarks = (
+#             marks.english_language + marks.english_literature + marks.hindi + marks.physics + marks.chemistry + marks.biology + 
+#             marks.history + marks.geography + marks.mathematics + marks.computer
     
-        )
-    return totalmarks
+#         )
+#     return totalmarks
 
 
 def getSessionID(pk):
@@ -122,7 +122,6 @@ context =  {
     'alias_name' : 'all',
     'website' : website,
     'current_session' : '2025-25',
-    'stud_total_marks' : getTotalMarks()
 }
 
 
@@ -171,6 +170,6 @@ def Classify_Crosslists_View(request, *args, **kwargs):
     else:
         html_file = 'crosslists_of_all_students.html'
 
-
-
     return render(request,html_file, context)
+
+
