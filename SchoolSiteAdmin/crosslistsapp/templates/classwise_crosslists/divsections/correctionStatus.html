@@ -1,0 +1,12 @@
+          {% load static %}
+          
+        
+            {% if data.correction_status == 'Done' %}   <span class='btn btn-outline-success btn-sm'>{{ data.correction_status }}</span>
+            {% elif data.correction_status == 'Pending' %}  <span class='btn btn-outline-warning btn-sm'>{{ data.correction_status }}</span>
+            {% elif data.correction_status == 'Error' %}  <span class='btn btn-outline-danger btn-sm'>{{ data.correction_status }}</span>
+            {% elif data.correction_status == 'Printed' %}  <span class='btn btn-outline-primary btn-sm'>{{ data.correction_status }}</span>
+            {% endif %}
+
+
+
+   

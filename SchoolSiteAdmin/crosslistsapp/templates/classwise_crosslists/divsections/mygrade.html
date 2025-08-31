@@ -1,0 +1,13 @@
+                                    {% if data.my_rank == 1 %}
+                                            {{ data.my_rank }}st
+                                    {% endif %}
+                                    {% if data.my_rank == 2 %}
+                                            {{ data.my_rank }}nd
+                                     {% endif %}
+                                    {% if data.my_rank == 3 %}
+                                            {{ data.my_rank }}rd
+                                     {% endif %}
+
+                                    {% if data.my_rank > 3 %}
+                                            {{ data.my_rank }}th
+                                    {% endif %} 
