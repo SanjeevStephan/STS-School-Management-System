@@ -1,4 +1,4 @@
-
+{% load static %}
 
   <section class="section">
     <div class="row">
@@ -20,6 +20,8 @@
                   <th scope="col">Class Name</th>            
                   <th scope="col">Roll Number</th>
                   <th scope="col">Result</th>
+                  <th scope="col">Update</th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -34,8 +36,10 @@
                       <td>{{ data.academic_session }}</td>
                       <td>{{ data.class_name }}</td>
                       <td>{{ data.roll_no }}</td>
-                      <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">Show</a></td>
 
+
+                      <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}-{{ data.section_name }}/{{ data.roll_no }}/sno/{{data.pk}}" target="_blank">Show</a></td>
+                      <td><a href="/admin/resultapp/terminalexammarksmodel/{{ data.pk }}/change/" target="_blank">Update</a></td>
                   </tr>
                     {% endif %} 
 

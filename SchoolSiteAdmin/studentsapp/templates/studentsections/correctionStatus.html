@@ -1,0 +1,12 @@
+          {% load static %}
+          
+        
+            {% if data.correction_status == 'Done' %}   <td><span class='btn btn-outline-success btn-sm'>{{ data.correction_status }}</span></td>
+            {% elif data.correction_status == 'Pending' %}  <td><span class='btn btn-outline-danger btn-sm'>{{ data.correction_status }}</span></td>
+          
+              {% endif %}
+
+
+
+   
+    {% include 'studentsections/correctionStatus.html' %}
