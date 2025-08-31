@@ -31,7 +31,7 @@
                 <tr>
                   <th scope="col">S.No</th>
                   <!-- <th scope="col">Class</th>     -->
-                  <!-- <th scope="col">Roll No</th> -->
+                  <th scope="col">Roll No</th>
                   <th scope="col">Student Name</th> 
                   <th scope="col">English</th>
                   <th scope="col">Hindi</th>
@@ -46,6 +46,7 @@
                   <th scope="col">Attendance</th>
                   <th scope="col">Percentage</th>
                   <th scope="col">Rank</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Result</th>
                   <th scope="col">Update</th>
                 </tr>
@@ -58,7 +59,7 @@
                     <tr>
                       <th scope="row">{{ data.pk }}</th>
                       <!-- <td>{{ data.class_name }}</td> -->
-                      <!-- <td>{{ data.roll_number }}</td> -->
+                      <td>{{ data.roll_number }}</td>
                       <!-- <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td> -->
                       <td><a href='/admin/studentsapp/studentmodel/{{ data.pk }}/change/' target="_blank">{{ data.student_name }}</a></td>
                       <!-- <td><a href='/media/' target="_blank">Show PDF</a></td> -->
@@ -76,6 +77,9 @@
                       <td>{{ data.percentage }}</td>
                       <td>
                         {% include 'classwise_crosslists/divsections/myrank.html' %}
+                      </td>
+                      <td>
+                         {% include 'classwise_crosslists/divsections/correctionStatus.html' %}
                       </td>
                       <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}/{{ data.roll_number }}/sno/{{data.pk}}" target="_blank">Show</a> </td>
                       <td><a href="/admin/resultapp/terminalexammarksmodel/{{ data.pk }}/change/" target="_blank">Edit</a></td>

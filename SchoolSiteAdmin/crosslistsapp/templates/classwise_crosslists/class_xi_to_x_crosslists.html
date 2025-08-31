@@ -52,6 +52,7 @@
                   <th scope="col">Attendance</th>
                   <th scope="col">Percentage</th>
                   <th scope="col">Rank</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Result</th>
                   <th scope="col">Update</th>
                 </tr>
@@ -84,6 +85,9 @@
                       <td>{{ data.percentage }}</td>
                       <td>
                         {% include 'classwise_crosslists/divsections/myrank.html' %}
+                      </td>
+                      <td>
+                         {% include 'classwise_crosslists/divsections/correctionStatus.html' %}
                       </td>
                       <td><a href="/result/{{ data.academic_session }}/{{ data.class_name }}/{{ data.roll_number }}/sno/{{data.pk}}" target="_blank">Show</a> </td>
                       <td><a href="/admin/resultapp/terminalexammarksmodel/{{ data.pk }}/change/" target="_blank">Edit</a></td>
