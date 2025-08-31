@@ -4,8 +4,8 @@ from .models import TerminalExamMarksModel
 # Register your models here.
 
 class SubjectModelAdmin(admin.ModelAdmin):
-    list_display = ('get_student_name','academic_session', 'terminal_exam', 'class_name','roll_number')
-    list_filter = ['academic_session','terminal_exam','class_name']
+    list_display = ('get_student_name','academic_session', 'terminal_exam', 'class_name','roll_number','correction_status')
+    list_filter = ['academic_session','terminal_exam','class_name','correction_status']
 
     # fieldsets = (
     #     ('Student Academic Details', {

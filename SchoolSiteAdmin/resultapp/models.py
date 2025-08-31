@@ -1,8 +1,8 @@
 from django.db import models
 
 # Create your models here.
-from studentsapp.models import StudentModel
-from dropdownlists.models import ClassOptionsModel
+# from studentsapp.models import StudentModel
+# from dropdownlists.models import ClassOptionsModel
 from dropdownlists.models import RollNumberOptionsModels
 # Optional: Define choices for option fields
 # # Optional: Define choices for option fields
@@ -25,6 +25,7 @@ CLASS_CHOICES = (
 )
 
 GRADE_CHOICES = (
+    (' ',' '),
     ('A', 'A'),
     ('B', 'B'),
     ('C', 'C'),
@@ -40,6 +41,13 @@ TERMINAL_CHOICES = (
     ('first','First Terminal'),
     ('second','Second Terminal'),
     ('third','Third Terminal'),
+)
+
+STATUS_OPTION = (
+    ('Done','Done'),
+    ('Pending','Pending'),
+    ('Printed','Printed'),
+    ('Error','ERROR')
 )
 
 FINAL_RESULT_CHOICES = (
@@ -59,6 +67,7 @@ class TerminalExamMarksModel(models.Model):
     terminal_exam    = models.CharField(max_length=6, choices=TERMINAL_CHOICES)
     # class_name     = models.ForeignKey(ClassOptionsModel, on_delete=models.CASCADE, blank=True,null=True)
     roll_number      = models.ForeignKey(RollNumberOptionsModels, on_delete=models.CASCADE, blank=True, null=True)
+
     
     ## First Terminal Subject's Marks 
     english             = models.IntegerField(default=0)
@@ -106,7 +115,11 @@ class TerminalExamMarksModel(models.Model):
     first_rank  = models.IntegerField(blank=True, null=True)
     my_rank     = models.IntegerField(blank=True, null=True)
 
+
     final_result = models.CharField(max_length=10, choices=FINAL_RESULT_CHOICES, blank=True, null=True)
+
+    correction_status = models.CharField(max_length=10, choices=STATUS_OPTION, default='Pending')
+
 
     def __str__(self):
         return f'{self.student_name} '
