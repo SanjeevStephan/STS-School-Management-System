@@ -236,29 +236,46 @@ def student_terminal_result(request,pk, *args, **kwargs):
    #     {% for marks in first_terminal_marks %}
     if student_data.class_name == 'LKG':
         # html_file =  'class_wise_marksheet/class_lkg_marksheet.html'
+        context.update({'total_full_marks' : 600})  # DONE
+        context.update({'total_pass_marks' : 220})
         html_file = 'terminal_wise_marksheet/class_lkg_marksheet.html'
     elif student_data.class_name == 'UKG':
-        # html_file =  'class_wise_marksheet/class_ukg_marksheet.html'
+        context.update({'total_full_marks' : 700}) ## DONE
+        context.update({'total_pass_marks' : 255})
         html_file = 'terminal_wise_marksheet/class_ukg_marksheet.html'
     elif student_data.class_name == 'I' or student_data.class_name == 'II':
         # html_file =  'class_wise_marksheet/class_i_and_ii_marksheet.html'
         # html_file =  'terminal_wise_marksheet/for_first_terminal_only/class_i_and_ii_marksheet.html'
+        context.update({'total_full_marks' : 1000}) # DONE
+        context.update({'total_pass_marks' : 365})
         html_file = 'terminal_wise_marksheet/class_i_and_ii_marksheet.html'
     elif student_data.class_name == 'III':
+        context.update({'total_full_marks' : 1100 }) # DONE
+        context.update({'total_pass_marks' : 400})
         html_file = "terminal_wise_marksheet/class_iii_marksheet.html"
     elif student_data.class_name == 'IV':
         # html_file = "class_wise_marksheet/class_iv_marksheet.html"
+        context.update({'total_full_marks' : 1100}) ## DONE
+        context.update({'total_pass_marks' : 400})  
         html_file = 'terminal_wise_marksheet/class_iv_marksheet.html'
     elif student_data.class_name == 'V':
         # html_file =  'class_wise_marksheet/class_v_marksheet.html'
+        context.update({'total_full_marks' : 1000})  ## DONE
+        context.update({'total_pass_marks' : 365})   
         html_file = 'terminal_wise_marksheet/class_v_marksheet.html'
     elif student_data.class_name == 'VI' or student_data.class_name == 'VII':
+        context.update({'total_full_marks' : 1300})
+        context.update({'total_pass_marks' : 470})
         # html_file = 'class_wise_marksheet/class_vi_to_vii_marksheet.html'  
         html_file = 'terminal_wise_marksheet/class_vi_to_vii_marksheet.html'
     elif student_data.class_name == 'VIII':
         # html_file = 'class_wise_marksheet/class_viii_marksheet.html'
+        context.update({'total_full_marks' : 1200}) # DONE
+        context.update({'total_pass_marks' : 435})
         html_file = 'terminal_wise_marksheet/class_viii_marksheet.html'
     elif student_data.class_name == 'IX' or student_data.class_name == 'X':
+        context.update({'total_full_marks' : 1000})
+        context.update({'total_pass_marks' : 365})
         # html_file = 'modified_marksheet/class_xi_to_x_marksheet.html'
         html_file = 'terminal_wise_marksheet/class_ix_to_x_marksheet.html'
 

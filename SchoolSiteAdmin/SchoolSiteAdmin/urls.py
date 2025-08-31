@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('navigationapp.urls')),
     path('', include('studentsapp.urls')),
     path('', include('resultapp.urls')),
-    path('', include('crosslistsapp.urls'))
+    path('', include('crosslistsapp.urls')),
+    # path('', include('printviewapp.urls'))
 ]

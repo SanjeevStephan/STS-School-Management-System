@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-jb)_0@=f*xekp0)utxyp$jm7+8+=34))0pg+2oa1e4cl9=koe6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','10.126.30.53','10.51.106.53','192.168.56.1','10.42.0.176']
+ALLOWED_HOSTS = ['127.0.0.1','10.126.30.53','10.51.106.53','192.168.56.1','10.42.0.176','10.42.0.125']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'studentsapp',
     'dropdownlists',
     'resultapp',
-    'crosslistsapp'
+    'crosslistsapp',
+    # 'printviewapp'
 ]
 
 MIDDLEWARE = [
