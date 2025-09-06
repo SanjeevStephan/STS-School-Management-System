@@ -16,6 +16,8 @@
                   <th scope="col">S.No</th>
                   <th scope="col">Student Name</th> 
                   <th scope="col">Details</th> 
+                  <th scope="col">Crosslists</th> 
+                  
                   <!-- <th scope="col">Profile</th> -->
                   <th scope="col">Class</th>    
                   <th scope="col">Roll Number</th>
@@ -26,7 +28,10 @@
                   <th scope="col">Social Studies</th>
                   <th scope="col">Moral Science</th>
                   <th scope="col">G.K</th> -->
-
+                  <th scope="col">Attendance</th>
+                  <th scope="col">Total Marks</th>
+                  <th scope="col">Percentage</th>
+                  <th scope="col">Rank</th>
                   <th scope="col">Status</th>
                   <th scope="col">Result</th>
                   <th scope="col">Update</th>
@@ -43,6 +48,7 @@
                       <td><a href="{% url 'Filter_Students_Via_Class' data.pk %}" target="_blank">{{ data.student_name }}</a></td>
                       <!-- <td><a href='/media/' target="_blank">Show PDF</a></td> -->
                       <td><a href='/admin/studentsapp/studentmodel/{{ data.pk }}/change/' target="_blank">Edit</a></td>
+                      <td><a href='/crosslists/of/{{ data.class_name}}/' target="_blank">Show</a></td>
                       <td>{{ data.class_name }}</td>
                       <td>{{ data.roll_number }}</td>
                       <!-- <td>{{ data.english_language }}</td>
@@ -52,7 +58,10 @@
                       <td>{{ data.social_studies }}</td>
                       <td>{{ data.moral_science }}</td>
                       <td>{{ data.general_knowledge }}</td> -->
-
+                      <td>{{ data.days_present }}/{{ data.working_days }}</td>
+                      <td>{{ data.total_marks }}</td>
+                      <td>{{ data.percentage }}</td>
+                      <td>{{ data.my_rank }}</td>
                      <td>
                        {% include 'classwise_crosslists/divsections/correctionStatus.html' %}
                      </td>

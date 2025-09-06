@@ -49,7 +49,7 @@
                                 <td>SANSKRIT</td><td>100</td><td>{{ lang_pass_marks }}</td>
                                 <td>
                                   
-                                      {% if first_terminal_sanskrit_mark < rest_subj_pass_marks %}
+                                      {% if first_terminal_sanskrit_mark < lang_pass_marks %}
                                         <span class="crossed"> {{ first_terminal_sanskrit_mark }}</span>
                                     {% else %}
                                         <span>{{ first_terminal_sanskrit_mark }} </span>
@@ -91,7 +91,7 @@
                             <tr>
                                 <td>GENERAL KNOWLEDGE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
                                 <td>
-                                    {% if first_terminal_general_knowledge_mark < lang_pass_marks %}
+                                    {% if first_terminal_general_knowledge_mark < rest_subj_pass_marks %}
                                         <span class="crossed"> {{ first_terminal_general_knowledge_mark }}</span>
                                     {% else %}
                                         <span>{{ first_terminal_general_knowledge_mark }} </span>
@@ -102,7 +102,7 @@
                                 <td>MORAL SCIENCE</td><td>100</td><td>{{ rest_subj_pass_marks }}</td>
                                 <td>
                                  
-                                    {% if first_terminal_moral_science_mark < lang_pass_marks %}
+                                    {% if first_terminal_moral_science_mark < rest_subj_pass_marks %}
                                         <span class="crossed"> {{ first_terminal_moral_science_mark }}</span>
                                     {% else %}
                                         <span>{{ first_terminal_moral_science_mark }} </span>
